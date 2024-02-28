@@ -3,10 +3,9 @@ package com.klewerro.kmmquiz
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
-class IosGreetingTest {
-
+class GreetingTest {
     @Test
     fun testExample() {
-        assertTrue(Greeting().greet().contains("iOS"), "Check iOS is mentioned")
+        assertTrue(Greeting().greet().contains("Hello"), "Check 'Hello' is mentioned")
     }
 }

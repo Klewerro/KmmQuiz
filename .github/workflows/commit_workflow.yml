@@ -23,13 +23,24 @@ jobs:
         run: bash ./gradlew ktlintCheck
 
 #     App module
-      - name: Upload source lint results
+      - name: Upload Android app module lint results
         uses: actions/upload-artifact@v4
         with:
-          name: app
-          path: androidApp/build/reports/ktlint/ktlintMainSourceSetCheck/ktlintMainSourceSetCheck.txt
-      - name: Upload test lint results
+          name: lintAppModule
+          path: |
+            androidApp/build/reports/ktlint/ktlintMainSourceSetCheck/ktlintMainSourceSetCheck.txt
+            androidApp/build/reports/ktlint/ktlintTestSourceSetCheck/ktlintTestSourceSetCheck.txt
+
+#     Shared module
+      - name: Upload shared module lint results
         uses: actions/upload-artifact@v4
         with:
-          name: app
-          path: androidApp/build/reports/ktlint/ktlintTestSourceSetCheck/ktlintTestSourceSetCheck.txt
+          name: lintSharedModule
+          path: |
+            shared/build/reports/ktlint/ktlintAndroidMainSourceSetCheck/ktlintAndroidMainSourceSetCheck.txt
+            shared/build/reports/ktlint/ktlintAndroidUnitTestSourceSetCheck/ktlintAndroidUnitTestSourceSetCheck.txt
+            shared/build/reports/ktlint/ktlintCommonMainSourceSetCheck/ktlintCommonMainSourceSetCheck.txt
+            shared/build/reports/ktlint/ktlintCommonTestSourceSetCheck/ktlintCommonTestSourceSetCheck.txt
+            shared/build/reports/ktlint/ktlintIosMainSourceSetCheck/ktlintIosMainSourceSetCheck.txt
+            shared/build/reports/ktlint/ktlintIosTestSourceSetCheck/ktlintIosTestSourceSetCheck.txt
+            shared/build/reports/ktlint/ktlintKotlinScriptCheck/ktlintKotlinScriptCheck.txt

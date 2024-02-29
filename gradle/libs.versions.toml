@@ -1,11 +1,12 @@
 [versions]
 agp = "8.2.2"
-kotlin = "1.9.20"
-compose = "1.5.4"
-compose-compiler = "1.5.4"
-compose-material3 = "1.1.2"
-androidx-activityCompose = "1.8.0"
+kotlin = "1.9.22"
+compose = "1.6.2"
+compose-compiler = "1.5.10"
+compose-material3 = "1.2.0"
+androidx-activityCompose = "1.8.2"
 ktlint = "12.1.0"
+moko = "0.23.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -15,6 +16,9 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+moko-resourcesGenerator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko" }
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
+moko-graphics = { module = "dev.icerock.moko:graphics", version = "0.9.0" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

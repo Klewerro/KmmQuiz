@@ -2,10 +2,9 @@ import SwiftUI
 import shared
 
 struct ContentView: View {
-	let greet = Greeting().greet()
-
 	var body: some View {
-		Text(greet)
+        Text(SharedStrings().get(id: SharedRes.strings().hello_world, args: []))
+            .foregroundStyle(Color(SharedRes.colors().onBackground.getUiColor()))
 	}
 }
 

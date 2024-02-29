@@ -7,6 +7,8 @@ compose-material3 = "1.2.0"
 androidx-activityCompose = "1.8.2"
 ktlint = "12.1.0"
 moko = "0.23.0"
+hilt = "2.50"
+hilt-compiler = "1.2.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -19,6 +21,10 @@ compose-material3 = { module = "androidx.compose.material3:material3", version.r
 moko-resourcesGenerator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko" }
 moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
 moko-graphics = { module = "dev.icerock.moko:graphics", version = "0.9.0" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt"}
+hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler"}
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-compiler"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -27,3 +33,14 @@ kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+hiltGradlePlugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
+
+[bundles]
+hilt = [
+    "hilt-android",
+    "hilt-navigation-compose"
+]
+hiltKapt = [
+    "hilt-android-compiler",
+    "hilt-compiler"
+]

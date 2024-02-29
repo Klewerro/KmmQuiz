@@ -1,6 +1,8 @@
 plugins {
+    id("kotlin-kapt")
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.hiltGradlePlugin)
 }
 
 android {
@@ -44,5 +46,8 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.bundles.hilt)
+    kapt(libs.bundles.hiltKapt)
+
     debugImplementation(libs.compose.ui.tooling)
 }

@@ -14,8 +14,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.klewerro.kmmquiz.SharedRes
 import com.klewerro.kmmquiz.SharedStrings
+import dagger.hilt.android.AndroidEntryPoint
 import dev.icerock.moko.resources.StringResource
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

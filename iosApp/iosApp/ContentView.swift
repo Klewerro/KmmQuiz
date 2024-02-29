@@ -4,6 +4,7 @@ import shared
 struct ContentView: View {
 	var body: some View {
         Text(SharedStrings().get(id: SharedRes.strings().hello_world, args: []))
+            .foregroundStyle(Color(SharedRes.colors().onBackground.getUiColor()))
 	}
 }
 

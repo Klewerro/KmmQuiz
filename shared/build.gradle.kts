@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
-    id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.kotlinSerialization)
+    id("dev.icerock.mobile.multiplatform-resources") // Must be at the end!
 }
 
 kotlin {
@@ -42,15 +43,22 @@ kotlin {
     }
 
     sourceSets {
+        getByName("androidMain").dependsOn(commonMain.get())
+
         commonMain.dependencies {
             api(libs.moko.resources)
+            implementation(libs.ktor.core)
+            implementation(libs.ktor.serialization)
+            implementation(libs.ktor.serializationJson)
         }
 
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
 
-        getByName("androidMain").dependsOn(commonMain.get())
+        androidMain.dependencies {
+            implementation(libs.ktor.client.android)
+        }
 
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -61,6 +69,7 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
+                implementation(libs.ktor.client.ios)
             }
         }
 

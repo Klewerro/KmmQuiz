@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.bundles.hilt)
     kapt(libs.bundles.hiltKapt)
+    implementation(libs.ktor.client.android)
 
     debugImplementation(libs.compose.ui.tooling)
 }

@@ -91,4 +91,5 @@ android {
 multiplatformResources {
     multiplatformResourcesPackage = "com.klewerro.kmmquiz"
     multiplatformResourcesClassName = "SharedRes"
+    disableStaticFrameworkWarning = true  // Todo: Test it
 }

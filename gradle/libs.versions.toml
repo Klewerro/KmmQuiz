@@ -10,6 +10,7 @@ moko = "0.23.0"
 hilt = "2.50"
 hilt-compiler = "1.2.0"
 ktor = "2.3.7"
+lifecycle-runtime = "2.7.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -19,6 +20,10 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = 
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
 compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version = "2.7.7" }
+compose-icons = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
+compose-lifecycle = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime" }
 moko-resourcesGenerator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko" }
 moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko" }
 moko-graphics = { module = "dev.icerock.moko:graphics", version = "0.9.0" }
@@ -43,6 +48,18 @@ ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 hiltGradlePlugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 
 [bundles]
+compose = [
+    "compose-ui",
+    "compose-ui-tooling-preview",
+    "compose-navigation",
+    "compose-material3",
+    "compose-icons"
+]
+lifecycle = [
+    "lifecycle-runtime-ktx",
+    "androidx-activity-compose",
+    "compose-lifecycle"
+]
 hilt = [
     "hilt-android",
     "hilt-navigation-compose"

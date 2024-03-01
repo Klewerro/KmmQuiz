@@ -9,13 +9,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.klewerro.kmmquiz.SharedRes
-import com.klewerro.kmmquiz.SharedStrings
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.klewerro.kmmquiz.android.question.GetQuestionListAndroidViewModel
+import com.klewerro.kmmquiz.android.question.GetQuestionListScreen
 import dagger.hilt.android.AndroidEntryPoint
-import dev.icerock.moko.resources.StringResource
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -27,19 +28,18 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView(sharedStringResource(id = SharedRes.strings.hello_world))
+                    val viewModel = hiltViewModel<GetQuestionListAndroidViewModel>()
+                    val getQuestionListState by viewModel.state.collectAsStateWithLifecycle()
+                    GetQuestionListScreen(
+                        state = getQuestionListState,
+                        onEvent = { event ->
+                            viewModel.onEvent(event)
+                        }
+                    )
                 }
             }
         }
     }
-}
-
-@Composable
-fun sharedStringResource(
-    id: StringResource,
-    vararg args: Any
-): String {
-    return SharedStrings(LocalContext.current).get(id, args.toList())
 }
 
 @Composable

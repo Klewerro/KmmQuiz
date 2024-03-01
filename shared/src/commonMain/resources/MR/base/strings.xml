@@ -3,4 +3,5 @@
     <string name="hello_world">Hello world</string>
     <string name="get_questions">Get questions</string>
     <string name="getting_questions">Getting questions</string>
+    <string name="number_of_questions">Number of questions</string>
 </resources>

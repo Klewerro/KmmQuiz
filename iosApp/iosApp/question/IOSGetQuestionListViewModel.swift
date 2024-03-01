@@ -17,7 +17,10 @@ import shared
     @Published var state = GetQuestionListState(
         isFetchingData: false,
         questions: [],
-        error: nil
+        error: nil,
+        amountOfQuestions: GetQuestionListState.Companion().DEFAULT_QUESTION_AMOUNT,
+        questionCategory: .generalKnowledge,
+        isChoosingQuestionCategory: false
     )
     
     init(getQuestionListUseCase: GetQuestionListUseCase) {

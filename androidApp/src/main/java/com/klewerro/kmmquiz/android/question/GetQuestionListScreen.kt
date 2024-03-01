@@ -14,14 +14,19 @@ import com.klewerro.kmmquiz.presentation.question.GetQuestionListEvent
 import com.klewerro.kmmquiz.presentation.question.GetQuestionListState
 
 @Composable
-fun GetQuestionListScreen(state: GetQuestionListState, onEvent: (GetQuestionListEvent) -> Unit, modifier: Modifier = Modifier) {
+fun GetQuestionListScreen(
+    state: GetQuestionListState,
+    onEvent: (GetQuestionListEvent) -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
         ProgressButton(
             isLoading = state.isFetchingData,
-            text = sharedStringResource(id = SharedRes.strings.get_questions),
+            labelText = sharedStringResource(id = SharedRes.strings.get_questions),
+            progressText = sharedStringResource(id = SharedRes.strings.getting_questions),
             onClick = { onEvent(GetQuestionListEvent.GetNewQuestionList) }
         )
     }

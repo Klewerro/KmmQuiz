@@ -17,16 +17,16 @@ import kotlinx.coroutines.launch
 class GetQuestionListViewModel(
     private val getQuestionListUseCase: GetQuestionListUseCase,
     private val coroutineScope: CoroutineScope?
-) : CommonViewModel<GetQuestionState, GetQuestionEvent>(coroutineScope) {
+) : CommonViewModel<GetQuestionListState, GetQuestionListEvent>(coroutineScope) {
     private var getQuestionListJob: Job? = null
-    private val _state = MutableStateFlow(GetQuestionState())
+    private val _state = MutableStateFlow(GetQuestionListState())
     override val state = _state
         .asStateFlow()
         .toCommonStateFlow()
 
-    override fun onEvent(event: GetQuestionEvent) {
+    override fun onEvent(event: GetQuestionListEvent) {
         when (event) {
-            GetQuestionEvent.GetNewQuestion -> {
+            GetQuestionListEvent.GetNewQuestionList -> {
                 if (state.value.isFetchingData) {
                     return
                 }

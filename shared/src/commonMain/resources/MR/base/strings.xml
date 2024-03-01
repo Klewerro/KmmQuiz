@@ -2,4 +2,5 @@
 <resources>
     <string name="hello_world">Hello world</string>
     <string name="get_questions">Get questions</string>
+    <string name="getting_questions">Getting questions</string>
 </resources>

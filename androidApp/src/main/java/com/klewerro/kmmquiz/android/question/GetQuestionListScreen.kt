@@ -10,11 +10,11 @@ import com.klewerro.kmmquiz.SharedRes
 import com.klewerro.kmmquiz.android.MyApplicationTheme
 import com.klewerro.kmmquiz.android.core.sharedStringResource
 import com.klewerro.kmmquiz.android.question.components.ProgressButton
-import com.klewerro.kmmquiz.presentation.question.GetQuestionEvent
-import com.klewerro.kmmquiz.presentation.question.GetQuestionState
+import com.klewerro.kmmquiz.presentation.question.GetQuestionListEvent
+import com.klewerro.kmmquiz.presentation.question.GetQuestionListState
 
 @Composable
-fun GetQuestionListScreen(state: GetQuestionState, onEvent: (GetQuestionEvent) -> Unit, modifier: Modifier = Modifier) {
+fun GetQuestionListScreen(state: GetQuestionListState, onEvent: (GetQuestionListEvent) -> Unit, modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -22,7 +22,7 @@ fun GetQuestionListScreen(state: GetQuestionState, onEvent: (GetQuestionEvent) -
         ProgressButton(
             isLoading = state.isFetchingData,
             text = sharedStringResource(id = SharedRes.strings.get_questions),
-            onClick = { onEvent(GetQuestionEvent.GetNewQuestion) }
+            onClick = { onEvent(GetQuestionListEvent.GetNewQuestionList) }
         )
     }
 }
@@ -30,7 +30,7 @@ fun GetQuestionListScreen(state: GetQuestionState, onEvent: (GetQuestionEvent) -
 @Preview(showBackground = true)
 @Composable
 private fun ScreenPreview() {
-    val state = GetQuestionState(
+    val state = GetQuestionListState(
         false,
         emptyList(),
         null

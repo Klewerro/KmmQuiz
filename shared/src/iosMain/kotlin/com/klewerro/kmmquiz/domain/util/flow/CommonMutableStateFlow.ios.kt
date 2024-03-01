@@ -16,10 +16,7 @@ actual open class CommonMutableStateFlow<T> actual constructor(
     override val subscriptionCount: StateFlow<Int>
         get() = flow.subscriptionCount
 
-    override fun compareAndSet(
-        expect: T,
-        update: T
-    ): Boolean {
+    override fun compareAndSet(expect: T, update: T): Boolean {
         return flow.compareAndSet(expect, update)
     }
 

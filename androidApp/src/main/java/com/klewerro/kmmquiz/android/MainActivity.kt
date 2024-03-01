@@ -47,8 +47,7 @@ fun GreetingView(text: String) {
     Text(
         text = text,
         modifier =
-            Modifier
-                .background(MaterialTheme.colorScheme.primary),
+        Modifier.background(MaterialTheme.colorScheme.primary),
         color = MaterialTheme.colorScheme.onPrimary
     )
 }

@@ -16,10 +16,7 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.utils.io.errors.IOException
 
 class KtorQuestionClient(private val httpClient: HttpClient) : QuestionClient {
-    override suspend fun getQuestions(
-        questionCategoryId: Int,
-        amount: Int
-    ): List<Question> {
+    override suspend fun getQuestions(questionCategoryId: Int, amount: Int): List<Question> {
         val questionsRequestResult =
             httpClient
                 .get {

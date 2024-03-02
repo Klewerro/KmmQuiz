@@ -1,4 +1,4 @@
-package com.klewerro.kmmquiz.data
+package com.klewerro.kmmquiz.data.remote
 
 object ApiConstants {
     const val BASE_URL = "https://opentdb.com/api.php"

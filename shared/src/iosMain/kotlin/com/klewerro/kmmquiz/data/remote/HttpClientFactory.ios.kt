@@ -1,4 +1,4 @@
-package com.klewerro.kmmquiz.data
+package com.klewerro.kmmquiz.data.remote
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.darwin.Darwin

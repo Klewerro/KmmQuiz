@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import com.klewerro.kmmquiz.android.MyApplicationTheme
 
@@ -46,7 +47,7 @@ fun ProgressButton(
     }
 }
 
-@Preview(showBackground = true)
+@PreviewLightDark
 @Composable
 private fun PreviewProgressButtonLoading() {
     MyApplicationTheme {
@@ -54,7 +55,7 @@ private fun PreviewProgressButtonLoading() {
     }
 }
 
-@Preview(showBackground = true)
+@PreviewLightDark
 @Composable
 private fun PreviewProgressButtonNotLoading() {
     MyApplicationTheme {

@@ -1,6 +1,6 @@
 package com.klewerro.kmmquiz.domain.mapper
 
-import com.klewerro.kmmquiz.data.dto.QuestionDto
+import com.klewerro.kmmquiz.data.remote.dto.QuestionDto
 import com.klewerro.kmmquiz.domain.model.question.Question
 import com.klewerro.kmmquiz.domain.model.question.QuestionDifficulty
 import com.klewerro.kmmquiz.domain.model.question.QuestionType

@@ -1,4 +1,4 @@
-package com.klewerro.kmmquiz.data.dto
+package com.klewerro.kmmquiz.data.remote.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

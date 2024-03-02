@@ -1,8 +1,8 @@
-package com.klewerro.kmmquiz.data
+package com.klewerro.kmmquiz.data.remote
 
-import com.klewerro.kmmquiz.data.dto.QuestionResponseDto
-import com.klewerro.kmmquiz.data.error.QuestionApiError
-import com.klewerro.kmmquiz.data.error.QuestionApiException
+import com.klewerro.kmmquiz.data.remote.dto.QuestionResponseDto
+import com.klewerro.kmmquiz.data.remote.error.QuestionApiError
+import com.klewerro.kmmquiz.data.remote.error.QuestionApiException
 import com.klewerro.kmmquiz.domain.QuestionClient
 import com.klewerro.kmmquiz.domain.mapper.QuestionMapper
 import com.klewerro.kmmquiz.domain.model.question.Question

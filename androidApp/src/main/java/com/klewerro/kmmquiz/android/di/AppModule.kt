@@ -1,7 +1,7 @@
 package com.klewerro.kmmquiz.android.di
 
-import com.klewerro.kmmquiz.data.HttpClientFactory
-import com.klewerro.kmmquiz.data.KtorQuestionClient
+import com.klewerro.kmmquiz.data.remote.HttpClientFactory
+import com.klewerro.kmmquiz.data.remote.KtorQuestionClient
 import com.klewerro.kmmquiz.domain.QuestionClient
 import dagger.Module
 import dagger.Provides

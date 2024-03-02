@@ -1,6 +1,6 @@
 package com.klewerro.kmmquiz.presentation.question
 
-import com.klewerro.kmmquiz.data.error.QuestionApiException
+import com.klewerro.kmmquiz.data.remote.error.QuestionApiException
 import com.klewerro.kmmquiz.domain.usecase.GetQuestionListUseCase
 import com.klewerro.kmmquiz.domain.util.Resource
 import com.klewerro.kmmquiz.domain.util.flow.toCommonStateFlow

@@ -1,4 +1,4 @@
-package com.klewerro.kmmquiz.data.error
+package com.klewerro.kmmquiz.data.remote.error
 
 enum class QuestionApiError {
     SERVICE_UNAVAILABLE,

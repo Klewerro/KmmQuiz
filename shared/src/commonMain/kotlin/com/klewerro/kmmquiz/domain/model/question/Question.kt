@@ -7,5 +7,5 @@ data class Question(
     val incorrectAnswers: List<String>,
     val type: QuestionType,
     val text: String,
-    val allAnswers: List<String> = incorrectAnswers.plus(correctAnswer)
+    val allAnswers: List<String> = incorrectAnswers.plus(correctAnswer).shuffled()
 )

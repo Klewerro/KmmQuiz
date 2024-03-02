@@ -1,10 +1,13 @@
 package com.klewerro.kmmquiz.android.question
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -19,6 +22,10 @@ import com.klewerro.kmmquiz.android.MyApplicationTheme
 import com.klewerro.kmmquiz.android.core.sharedStringResource
 import com.klewerro.kmmquiz.android.question.components.CategoryDropDown
 import com.klewerro.kmmquiz.android.question.components.ProgressButton
+import com.klewerro.kmmquiz.android.question.components.QuestionListItem
+import com.klewerro.kmmquiz.domain.model.question.Question
+import com.klewerro.kmmquiz.domain.model.question.QuestionDifficulty
+import com.klewerro.kmmquiz.domain.model.question.QuestionType
 import com.klewerro.kmmquiz.presentation.question.GetQuestionListEvent
 import com.klewerro.kmmquiz.presentation.question.GetQuestionListState
 
@@ -75,17 +82,47 @@ fun GetQuestionListScreen(
             progressText = sharedStringResource(id = SharedRes.strings.getting_questions),
             onClick = { onEvent(GetQuestionListEvent.GetNewQuestionList) }
         )
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            items(state.questions) { question ->
+                QuestionListItem(question)
+            }
+        }
     }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun ScreenPreview() {
+    val question = Question(
+        "",
+        QuestionDifficulty.MEDIUM,
+        "correct answer",
+        listOf("incorrect1", "incorrect2", "incorrect3"),
+        QuestionType.MULTIPLE,
+        "Question text"
+    )
+    val questionBoolean = Question(
+        "",
+        QuestionDifficulty.MEDIUM,
+        "true",
+        listOf("false"),
+        QuestionType.BOOLEAN,
+        "Question text"
+    )
     val state = GetQuestionListState(
-        false,
-        emptyList(),
-        null,
-        3
+        isFetchingData = false,
+        questions = listOf(
+            question,
+            questionBoolean,
+            question
+        ),
+        error = null,
+        amountOfQuestions = 3
     )
     MyApplicationTheme {
         GetQuestionListScreen(state = state, onEvent = {}, modifier = Modifier.fillMaxSize())

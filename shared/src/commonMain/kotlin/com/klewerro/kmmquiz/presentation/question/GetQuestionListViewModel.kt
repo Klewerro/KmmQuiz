@@ -1,7 +1,6 @@
 package com.klewerro.kmmquiz.presentation.question
 
 import com.klewerro.kmmquiz.data.error.QuestionApiException
-import com.klewerro.kmmquiz.domain.model.question.QuestionCategory
 import com.klewerro.kmmquiz.domain.usecase.GetQuestionListUseCase
 import com.klewerro.kmmquiz.domain.util.Resource
 import com.klewerro.kmmquiz.domain.util.flow.toCommonStateFlow
@@ -38,7 +37,8 @@ class GetQuestionListViewModel(
                             isFetchingData = true
                         )
                     }
-                    val category = QuestionCategory.GENERAL_KNOWLEDGE
+
+                    val category = state.value.questionCategory
                     val amount = state.value.amountOfQuestions
                     when (val getQuestionsResult = getQuestionListUseCase.execute(category, amount)) {
                         is Resource.Success -> _state.update {

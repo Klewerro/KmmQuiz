@@ -22,13 +22,22 @@ struct GetQuestionListScreen: View {
     var body: some View {
         ScrollView {
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20.0) {
-                ProgressButton(
-                    isLoading: viewModel.state.isFetchingData,
-                    labelText: SharedStrings().get(id: SharedRes.strings().get_questions, args: []),
-                    progressText: SharedStrings().get(id: SharedRes.strings().getting_questions, args: []),
-                    onClick: {
+                QuestionsHeader(
+                    amountOfQuestionsText: Binding(
+                        get: { String(viewModel.state.amountOfQuestions) },
+                        set: { value in
+                            viewModel.onEvent(.ChangeAmount(amountText: value))
+                        }),
+                    questionCategories: QuestionCategory.entries,
+                    currentQuestionCategory: viewModel.state.questionCategory,
+                    onCategoryClick: { questionCategory in
+                        viewModel.onEvent(.ChangeQuestionCategory(questionCategory: questionCategory))
+                    },
+                    onGetQuestionsClick: {
                         viewModel.onEvent(.GetNewQuestionList())
-                    })
+                    },
+                    isFetchingData: viewModel.state.isFetchingData
+                )
             }
         }
         .onAppear {

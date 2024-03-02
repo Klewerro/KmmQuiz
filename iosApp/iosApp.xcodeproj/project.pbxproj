@@ -16,6 +16,7 @@
 		AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */; };
 		AEB049262B923F5F0052DCA5 /* GetQuestionListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */; };
 		AEF20D4E2B9248EA00836818 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20D4D2B9248EA00836818 /* ProgressButton.swift */; };
+		AEF20D502B929D7000836818 /* QuestionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSGetQuestionListViewModel.swift; sourceTree = "<group>"; };
 		AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionListScreen.swift; sourceTree = "<group>"; };
 		AEF20D4D2B9248EA00836818 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
+		AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AEF20D4D2B9248EA00836818 /* ProgressButton.swift */,
+				AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF20D4E2B9248EA00836818 /* ProgressButton.swift in Sources */,
+				AEF20D502B929D7000836818 /* QuestionsHeader.swift in Sources */,
 				AEB049262B923F5F0052DCA5 /* GetQuestionListScreen.swift in Sources */,
 				AEB049212B90BCDB0052DCA5 /* ColorExtension.swift in Sources */,
 				AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */,

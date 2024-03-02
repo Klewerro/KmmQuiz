@@ -38,7 +38,12 @@ struct GetQuestionListScreen: View {
                     },
                     isFetchingData: viewModel.state.isFetchingData
                 )
+                ForEach(viewModel.state.questions, id: \.self.text) {question in
+                    QuestionListItem(question: question)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .padding(16)
         }
         .onAppear {
             viewModel.startObserving()

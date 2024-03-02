@@ -12,6 +12,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		24131AF020ADDD3C1B6A2880 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198A3B9E2D21D2D6D4432ED1 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		AE763B982B92B154003C8808 /* QuestionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE763B972B92B154003C8808 /* QuestionListItem.swift */; };
 		AEB049212B90BCDB0052DCA5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049202B90BCDB0052DCA5 /* ColorExtension.swift */; };
 		AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */; };
 		AEB049262B923F5F0052DCA5 /* GetQuestionListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */; };
@@ -29,6 +30,7 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE763B972B92B154003C8808 /* QuestionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListItem.swift; sourceTree = "<group>"; };
 		AEB049202B90BCDB0052DCA5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSGetQuestionListViewModel.swift; sourceTree = "<group>"; };
 		AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionListScreen.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				AEF20D4D2B9248EA00836818 /* ProgressButton.swift */,
 				AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */,
+				AE763B972B92B154003C8808 /* QuestionListItem.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				AEF20D502B929D7000836818 /* QuestionsHeader.swift in Sources */,
 				AEB049262B923F5F0052DCA5 /* GetQuestionListScreen.swift in Sources */,
 				AEB049212B90BCDB0052DCA5 /* ColorExtension.swift in Sources */,
+				AE763B982B92B154003C8808 /* QuestionListItem.swift in Sources */,
 				AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

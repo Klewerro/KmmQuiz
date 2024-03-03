@@ -9,7 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.klewerro.kmmquiz.android.question.components.QuestionListItem
+import com.klewerro.kmmquiz.android.saved.components.SelectableSavedQuestionListItem
 import com.klewerro.kmmquiz.presentation.saved.SavedQuestionsEvent
 import com.klewerro.kmmquiz.presentation.saved.SavedQuestionsState
 
@@ -26,8 +26,16 @@ fun SavedQuestionsScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            items(state.savedQuestions) { question ->
-                QuestionListItem(question = question, onSaveButtonClick = {})
+            items(state.savedQuestions) { selectableSavedQuestion ->
+                SelectableSavedQuestionListItem(
+                    selectableSavedQuestion = selectableSavedQuestion,
+                    onDeleteClick = {
+                        onEvent(SavedQuestionsEvent.DeleteQuestion(selectableSavedQuestion.question))
+                    },
+                    onSelectedChanged = {
+                        onEvent(SavedQuestionsEvent.SelectableQuestionCheckedChanged(selectableSavedQuestion, it))
+                    }
+                )
             }
         }
     }

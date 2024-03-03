@@ -32,3 +32,7 @@ INTO questionEntity(
     time
 )
 VALUES (?,?, ?, ?, ?, ?, ? ,?);
+
+deleteQuestionEntity:
+DELETE FROM questionEntity
+WHERE text == ?;

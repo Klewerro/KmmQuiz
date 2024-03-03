@@ -4,8 +4,8 @@ import com.klewerro.kmmquiz.domain.model.question.Question
 
 sealed class SavedQuestionsEvent {
     data class DeleteQuestion(val question: Question) : SavedQuestionsEvent()
-    data class SelectableQuestionCheckedChanged(
+    data class QuestionSelectionChanged(
         val selectableQuestion: SelectableSavedQuestion,
-        val isChecked: Boolean
+        val isSelected: Boolean
     ) : SavedQuestionsEvent()
 }

@@ -8,4 +8,5 @@ interface LocalDbDataSource {
     val questions: Flow<List<QuestionEntity>>
     suspend fun insertQuestion(question: Question)
     suspend fun isQuestionWithTextAlreadySaved(question: Question): Boolean
+    suspend fun deleteQuestion(question: Question)
 }

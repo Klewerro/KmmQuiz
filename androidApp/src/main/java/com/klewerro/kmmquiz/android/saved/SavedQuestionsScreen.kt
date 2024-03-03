@@ -33,7 +33,7 @@ fun SavedQuestionsScreen(
                         onEvent(SavedQuestionsEvent.DeleteQuestion(selectableSavedQuestion.question))
                     },
                     onSelectedChanged = {
-                        onEvent(SavedQuestionsEvent.SelectableQuestionCheckedChanged(selectableSavedQuestion, it))
+                        onEvent(SavedQuestionsEvent.QuestionSelectionChanged(selectableSavedQuestion, it))
                     }
                 )
             }

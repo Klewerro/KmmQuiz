@@ -19,8 +19,7 @@ class SqlDelightQuizDataSource(db: QuizDb) : LocalDbDataSource {
         .mapToList(Dispatchers.IO)
 
     override suspend fun isQuestionWithTextAlreadySaved(question: Question): Boolean {
-        val result = questionQueries.countOfQuestionsWithText(question.text).executeAsOne() > 0
-        return result
+        return questionQueries.countOfQuestionsWithText(question.text).executeAsOne() > 0
     }
 
     override suspend fun insertQuestion(question: Question) = withContext(Dispatchers.IO) {
@@ -34,5 +33,9 @@ class SqlDelightQuizDataSource(db: QuizDb) : LocalDbDataSource {
             text = question.text,
             time = Clock.System.now().toEpochMilliseconds()
         )
+    }
+
+    override suspend fun deleteQuestion(question: Question) = withContext(Dispatchers.IO) {
+        questionQueries.deleteQuestionEntity(question.text)
     }
 }

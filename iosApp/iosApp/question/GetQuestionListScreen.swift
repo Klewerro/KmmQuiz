@@ -47,7 +47,12 @@ struct GetQuestionListScreen: View {
                     isFetchingData: viewModel.state.isFetchingData
                 )
                 ForEach(viewModel.state.questions, id: \.self.text) {question in
-                    QuestionListItem(question: question)
+                    QuestionListItem(
+                        question: question,
+                        onSaveButtonClick: {
+                            viewModel.onEvent(.SaveQuestion(question: question))
+                        }
+                    )
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

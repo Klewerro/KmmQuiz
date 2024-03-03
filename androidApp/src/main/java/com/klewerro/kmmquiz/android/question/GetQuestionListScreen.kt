@@ -52,9 +52,7 @@ fun GetQuestionListScreen(
             GetQuestionListError.SERVICE_UNAVAILABLE -> SharedStrings(context)
                 .get(SharedRes.strings.error_service_unavailable, emptyList())
 
-            GetQuestionListError.CLIENT_ERROR -> SharedStrings(context)
-                .get(SharedRes.strings.client_error, emptyList())
-
+            GetQuestionListError.CLIENT_ERROR,
             GetQuestionListError.SERIALIZATION_ERROR -> SharedStrings(context)
                 .get(SharedRes.strings.client_error, emptyList())
 

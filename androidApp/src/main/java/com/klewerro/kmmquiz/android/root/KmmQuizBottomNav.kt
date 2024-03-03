@@ -25,24 +25,30 @@ import com.klewerro.kmmquiz.android.core.Route
 import com.klewerro.kmmquiz.android.core.sharedStringResource
 
 @Composable
-fun KmmQuizBottomNav(navController: NavController) {
+fun KmmQuizBottomNav(
+    navController: NavController,
+    getQuestionsCount: Int?,
+    savedQuestionsCount: Int?,
+    quizCount: Int?
+) {
     val navItems = listOf(
         BottomNavigationItem(
             title = sharedStringResource(id = SharedRes.strings.tab_get_questions),
             selectedIcon = Icons.Filled.GetApp,
             unselectedIcon = Icons.Outlined.GetApp,
-            badgeCount = null
+            badgeCount = getQuestionsCount
         ),
         BottomNavigationItem(
             title = sharedStringResource(id = SharedRes.strings.tab_saved_questions),
             selectedIcon = Icons.Filled.Save,
             unselectedIcon = Icons.Outlined.Save,
-            badgeCount = null
+            badgeCount = savedQuestionsCount
         ),
         BottomNavigationItem(
             title = sharedStringResource(id = SharedRes.strings.tab_quiz),
             selectedIcon = Icons.Filled.Quiz,
-            unselectedIcon = Icons.Outlined.Quiz
+            unselectedIcon = Icons.Outlined.Quiz,
+            badgeCount = quizCount
         )
     )
 
@@ -71,8 +77,10 @@ fun KmmQuizBottomNav(navController: NavController) {
                     BadgedBox(
                         badge = {
                             bottomNavigationItem.badgeCount?.let {
-                                Badge {
-                                    Text(text = it.toString())
+                                if (it > 0) {
+                                    Badge {
+                                        Text(text = it.toString())
+                                    }
                                 }
                             }
                         }

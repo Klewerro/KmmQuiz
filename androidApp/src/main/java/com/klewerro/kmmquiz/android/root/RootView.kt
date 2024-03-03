@@ -31,10 +31,21 @@ fun RootView() {
         val snackbarHostState = remember { SnackbarHostState() }
         val navController = rememberNavController()
 
+        val getQuestionListViewModel = hiltViewModel<GetQuestionListAndroidViewModel>()
+        val getQuestionListState by getQuestionListViewModel.state.collectAsStateWithLifecycle()
+
+        val savedQuestionsViewModel = hiltViewModel<SavedQuestionsAndroidViewModel>()
+        val savedQuestionsState by savedQuestionsViewModel.state.collectAsStateWithLifecycle()
+
         Scaffold(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             bottomBar = {
-                KmmQuizBottomNav(navController)
+                KmmQuizBottomNav(
+                    navController,
+                    getQuestionListState.questions.size,
+                    savedQuestionsState.savedQuestions.size,
+                    null
+                )
             }
         ) { paddingValues ->
 
@@ -43,24 +54,20 @@ fun RootView() {
                 startDestination = Route.GET_QUESTIONS
             ) {
                 composable(Route.GET_QUESTIONS) {
-                    val viewModel = hiltViewModel<GetQuestionListAndroidViewModel>()
-                    val getQuestionListState by viewModel.state.collectAsStateWithLifecycle()
                     GetQuestionListScreen(
                         state = getQuestionListState,
                         onEvent = { event ->
-                            viewModel.onEvent(event)
+                            getQuestionListViewModel.onEvent(event)
                         },
                         snackbarHostState = snackbarHostState,
                         modifier = Modifier.padding(paddingValues)
                     )
                 }
                 composable(Route.SAVED_QUESTIONS) {
-                    val viewModel = hiltViewModel<SavedQuestionsAndroidViewModel>()
-                    val state by viewModel.state.collectAsStateWithLifecycle()
                     SavedQuestionsScreen(
-                        state = state,
+                        state = savedQuestionsState,
                         onEvent = { event ->
-                            viewModel.onEvent(event)
+                            savedQuestionsViewModel.onEvent(event)
                         },
                         modifier = Modifier.padding(paddingValues),
                         snackbarHostState = snackbarHostState

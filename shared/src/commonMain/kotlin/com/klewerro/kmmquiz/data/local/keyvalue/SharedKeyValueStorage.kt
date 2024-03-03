@@ -1,4 +1,4 @@
-package com.klewerro.kmmquiz.data.local
+package com.klewerro.kmmquiz.data.local.keyvalue
 
 import com.klewerro.kmmquiz.domain.KeyValueStorage
 import com.russhwolf.settings.ExperimentalSettingsApi

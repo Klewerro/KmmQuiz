@@ -13,14 +13,17 @@ struct GetQuestionListScreen: View {
     
     private var getQuestionListUseCase: GetQuestionListUseCase // Todo: Remove?
     private var keyValueStorage: KeyValueStorage
+    private var localDbDataSource: LocalDbDataSource
     @ObservedObject var viewModel: IOSGetQuestionListViewModel
     
-    init(getQuestionListUseCase: GetQuestionListUseCase, keyValueStorage: KeyValueStorage) {
+    init(getQuestionListUseCase: GetQuestionListUseCase, keyValueStorage: KeyValueStorage, localDbDataSource: LocalDbDataSource) {
         self.getQuestionListUseCase = getQuestionListUseCase // Todo: Remove?
         self.keyValueStorage = keyValueStorage
+        self.localDbDataSource = localDbDataSource
         self.viewModel = IOSGetQuestionListViewModel(
             getQuestionListUseCase: getQuestionListUseCase,
-            keyValueStorage: keyValueStorage
+            keyValueStorage: keyValueStorage,
+            localDbDataSource: localDbDataSource
         )
     }
     
@@ -44,7 +47,12 @@ struct GetQuestionListScreen: View {
                     isFetchingData: viewModel.state.isFetchingData
                 )
                 ForEach(viewModel.state.questions, id: \.self.text) {question in
-                    QuestionListItem(question: question)
+                    QuestionListItem(
+                        question: question,
+                        onSaveButtonClick: {
+                            viewModel.onEvent(.SaveQuestion(question: question))
+                        }
+                    )
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)

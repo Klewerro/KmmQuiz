@@ -2,11 +2,19 @@ package com.klewerro.kmmquiz.android.question.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Save
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
@@ -31,6 +39,7 @@ import com.klewerro.kmmquiz.domain.model.question.QuestionType
 @Composable
 fun QuestionListItem(
     question: Question,
+    onSaveButtonClick: () -> Unit,
     modifier: Modifier = Modifier,
     backgroundColor: Color = MaterialTheme.colorScheme.secondaryContainer
 ) {
@@ -44,13 +53,32 @@ fun QuestionListItem(
         var selectedItemIndex by remember {
             mutableIntStateOf(-1)
         }
-        Text(
-            text = question.text,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .fillMaxWidth()
-        )
+        ) {
+            Text(
+                text = question.text,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+                modifier = Modifier
+                    .padding(end = 8.dp)
+                    .alignByBaseline()
+                    .weight(1f)
+            )
+            Button(
+                onClick = onSaveButtonClick,
+                modifier = Modifier
+                    .size(50.dp) // 50dp for equal circle shape
+                    .alignByBaseline(),
+                shape = CircleShape,
+                contentPadding = PaddingValues(0.dp)
+            ) {
+//                Text(text = "Save")
+                Icon(imageVector = Icons.Default.Save, contentDescription = "Save question for quiz")
+            }
+        }
         question.allAnswers.forEachIndexed { index, answerText ->
             Row(
                 modifier = Modifier.clickable {
@@ -98,7 +126,8 @@ fun QuestionListItemPreview() {
     )
     MyApplicationTheme {
         QuestionListItem(
-            question = question
+            question = question,
+            onSaveButtonClick = {}
         )
     }
 }
@@ -112,11 +141,12 @@ fun BooleanQuestionListItemPreview() {
         correctAnswer = "true",
         incorrectAnswers = listOf("false"),
         type = QuestionType.BOOLEAN,
-        text = "Question text"
+        text = "Question text Question text Question text Question text Question text"
     )
     MyApplicationTheme {
         QuestionListItem(
-            question = question
+            question = question,
+            onSaveButtonClick = {}
         )
     }
 }

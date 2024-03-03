@@ -2,6 +2,7 @@ package com.klewerro.kmmquiz.presentation.question
 
 import com.klewerro.kmmquiz.data.remote.QuestionApiException
 import com.klewerro.kmmquiz.domain.KeyValueStorage
+import com.klewerro.kmmquiz.domain.LocalDbDataSource
 import com.klewerro.kmmquiz.domain.model.GetQuestionListError
 import com.klewerro.kmmquiz.domain.model.question.QuestionCategory
 import com.klewerro.kmmquiz.domain.usecase.GetQuestionListUseCase
@@ -22,6 +23,7 @@ import kotlinx.coroutines.launch
 class GetQuestionListViewModel(
     private val getQuestionListUseCase: GetQuestionListUseCase,
     private val keyValueStorage: KeyValueStorage,
+    private val localDbDataSource: LocalDbDataSource,
     private val coroutineScope: CoroutineScope?
 ) : CommonViewModel<GetQuestionListState, GetQuestionListEvent>(coroutineScope) {
     private var getQuestionListJob: Job? = null
@@ -120,6 +122,20 @@ class GetQuestionListViewModel(
                     it.copy(
                         error = null
                     )
+                }
+            }
+
+            is GetQuestionListEvent.SaveQuestion -> {
+                viewModelScope.launch(Dispatchers.IO) {
+                    if (localDbDataSource.isQuestionWithTextAlreadySaved(event.question)) {
+                        _state.update {
+                            it.copy(
+                                error = GetQuestionListError.QUESTION_ALREADY_SAVED
+                            )
+                        }
+                    } else {
+                        localDbDataSource.insertQuestion(event.question)
+                    }
                 }
             }
         }

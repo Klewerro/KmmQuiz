@@ -12,9 +12,11 @@ hilt-compiler = "1.2.0"
 ktor = "2.3.7"
 lifecycle-runtime = "2.7.0"
 multiplatformSettings = "1.1.1"
+sql-delight = "2.0.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlin-dateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.4.0" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
@@ -39,6 +41,10 @@ ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "k
 ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor"}
 multiplatformSettings = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings"}
 multiplatformSettings-flows = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatformSettings"}
+sqlDelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sql-delight"}
+sqlDelight-android-driver = { module = "app.cash.sqldelight:android-driver", version.ref = "sql-delight"}
+sqlDelight-native-driver = { module = "app.cash.sqldelight:native-driver", version.ref = "sql-delight"}
+sqlDelight-coroutineExtensions = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sql-delight"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -49,6 +55,7 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 hiltGradlePlugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
+sqlDelightPlugin = { id = "app.cash.sqldelight", version.ref = "sql-delight" }
 
 [bundles]
 compose = [

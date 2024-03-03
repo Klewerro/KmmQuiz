@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.hiltGradlePlugin)
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -37,6 +38,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    ktlint {
+        filter {
+            exclude { it.file.path.contains(layout.buildDirectory.dir("generated").get().toString()) }
+        }
     }
 }
 

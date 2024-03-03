@@ -11,14 +11,28 @@ import shared
 
 struct QuestionListItem: View {
     var question: Question // Todo: TEST let!
+    var onSaveButtonClick: () -> Void
     @State private var selected: String = ""
     
     var body: some View {
         VStack {
-            Text(question.text)
-                .lineLimit(10)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(8)
+            HStack {
+                Text(question.text)
+                    .lineLimit(10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(8)
+                Button(action: onSaveButtonClick) {
+                    Image(systemName: "plus")
+                        .font(.system(size: 25))
+                        .foregroundStyle(Color(SharedRes.colors().onPrimary.getUiColor()))
+                        .frame(width: 40, height: 40)
+                }
+                .background(
+                    Circle()
+                        .fill(Color(SharedRes.colors().primary.getUiColor()))
+                )
+                
+            }
             List {
                 Picker("Answers", selection: $selected) {
                     ForEach(question.allAnswers, id: \.self) { answerText in
@@ -58,6 +72,7 @@ struct QuestionListItem: View {
                 "Correct answer",
                 "Incorrect 3",
             ]
-        )
+        ), 
+        onSaveButtonClick: {}
     )
 }

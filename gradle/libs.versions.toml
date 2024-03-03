@@ -11,6 +11,7 @@ hilt = "2.50"
 hilt-compiler = "1.2.0"
 ktor = "2.3.7"
 lifecycle-runtime = "2.7.0"
+multiplatformSettings = "1.1.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,6 +37,8 @@ ktor-serialization = { module = "io.ktor:ktor-client-content-negotiation", versi
 ktor-serializationJson = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor"}
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor"}
 ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor"}
+multiplatformSettings = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings"}
+multiplatformSettings-flows = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatformSettings"}
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -67,4 +70,8 @@ hilt = [
 hiltKapt = [
     "hilt-android-compiler",
     "hilt-compiler"
+]
+multiplatformSettings = [
+    "multiplatformSettings",
+    "multiplatformSettings-flows"
 ]

@@ -1,10 +1,11 @@
-package com.klewerro.kmmquiz.data.remote.error
+package com.klewerro.kmmquiz.domain.model
 
-enum class QuestionApiError {
+enum class GetQuestionListError {
     SERVICE_UNAVAILABLE,
     CLIENT_ERROR,
     SERVER_ERROR,
     SERIALIZATION_ERROR,
     TOO_MANY_REQUESTS_ERROR,
-    UNKNOWN_ERROR
+    UNKNOWN_ERROR,
+    AMOUNT_IS_0
 }

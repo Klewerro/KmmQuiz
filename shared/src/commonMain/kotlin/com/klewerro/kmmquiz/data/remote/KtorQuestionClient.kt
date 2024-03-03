@@ -1,10 +1,9 @@
 package com.klewerro.kmmquiz.data.remote
 
 import com.klewerro.kmmquiz.data.remote.dto.QuestionResponseDto
-import com.klewerro.kmmquiz.data.remote.error.QuestionApiError
-import com.klewerro.kmmquiz.data.remote.error.QuestionApiException
 import com.klewerro.kmmquiz.domain.QuestionClient
 import com.klewerro.kmmquiz.domain.mapper.QuestionMapper
+import com.klewerro.kmmquiz.domain.model.GetQuestionListError
 import com.klewerro.kmmquiz.domain.model.question.Question
 import com.klewerro.kmmquiz.domain.model.question.QuestionCategory
 import io.ktor.client.HttpClient
@@ -34,19 +33,23 @@ class KtorQuestionClient(private val httpClient: HttpClient) : QuestionClient {
             try {
                 this.body<T>()
             } catch (e: IOException) {
-                throw QuestionApiException(QuestionApiError.SERVICE_UNAVAILABLE)
+                throw QuestionApiException(GetQuestionListError.SERVICE_UNAVAILABLE)
             } catch (e: NoTransformationFoundException) {
-                throw QuestionApiException(QuestionApiError.SERIALIZATION_ERROR)
+                throw QuestionApiException(GetQuestionListError.SERIALIZATION_ERROR)
             } catch (e: Exception) {
-                throw QuestionApiException(QuestionApiError.SERVER_ERROR)
+                if (this.status.value == 429) {
+                    throw QuestionApiException(GetQuestionListError.TOO_MANY_REQUESTS_ERROR)
+                } else {
+                    throw QuestionApiException(GetQuestionListError.SERVER_ERROR)
+                }
             }
 
         when (this.status.value) {
             in 200..299 -> Unit
-            500 -> throw QuestionApiException(QuestionApiError.SERVER_ERROR)
-            429 -> throw QuestionApiException(QuestionApiError.TOO_MANY_REQUESTS_ERROR)
-            in 400..499 -> throw QuestionApiException(QuestionApiError.CLIENT_ERROR)
-            else -> throw QuestionApiException(QuestionApiError.UNKNOWN_ERROR)
+            500 -> throw QuestionApiException(GetQuestionListError.SERVER_ERROR)
+            429 -> throw QuestionApiException(GetQuestionListError.TOO_MANY_REQUESTS_ERROR)
+            in 400..499 -> throw QuestionApiException(GetQuestionListError.CLIENT_ERROR)
+            else -> throw QuestionApiException(GetQuestionListError.UNKNOWN_ERROR)
         }
 
         return result

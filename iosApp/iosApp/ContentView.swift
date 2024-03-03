@@ -6,7 +6,8 @@ struct ContentView: View {
 	var body: some View {
         GetQuestionListScreen(
             getQuestionListUseCase: appModule.getQuestionListUseCase,
-            keyValueStorage: appModule.keyValueStorage
+            keyValueStorage: appModule.keyValueStorage,
+            localDbDataSource: appModule.localDbDataSource
         )
 	}
 }

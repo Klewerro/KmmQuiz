@@ -54,6 +54,39 @@ class SavedQuestionsViewModel(
                     }.toMap()
                 }
             }
+
+            is SavedQuestionsEvent.ChangeQuizNameText -> _state.update {
+                it.copy(
+                    newQuizName = event.nameText
+                )
+            }
+
+            SavedQuestionsEvent.SaveQuiz -> viewModelScope.launch(Dispatchers.IO) {
+                with(state.value) {
+                    val isInserted = localDbDataSource.insertQuiz(
+                        title = newQuizName,
+                        questions = savedQuestions
+                            .filter { it.isSelected }
+                            .map { it.question }
+                    )
+                    _state.update {
+                        it.copy(
+                            saveQuizResult = isInserted
+                        )
+                    }
+                }
+            }
+
+            SavedQuestionsEvent.OnQuizCreateMessageSeen -> {
+                _state.update {
+                    it.copy(
+                        saveQuizResult = null
+                    )
+                }
+                isQuestionSelectedMap.update {
+                    emptyMap()
+                }
+            }
         }
     }
 }

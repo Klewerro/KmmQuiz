@@ -9,4 +9,5 @@ interface LocalDbDataSource {
     suspend fun insertQuestion(question: Question)
     suspend fun isQuestionWithTextAlreadySaved(question: Question): Boolean
     suspend fun deleteQuestion(question: Question)
+    suspend fun insertQuiz(title: String, questions: List<Question>): Boolean
 }

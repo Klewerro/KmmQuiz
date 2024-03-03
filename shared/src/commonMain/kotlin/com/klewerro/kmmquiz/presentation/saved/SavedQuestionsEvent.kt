@@ -8,4 +8,8 @@ sealed class SavedQuestionsEvent {
         val selectableQuestion: SelectableSavedQuestion,
         val isSelected: Boolean
     ) : SavedQuestionsEvent()
+
+    data class ChangeQuizNameText(val nameText: String) : SavedQuestionsEvent()
+    data object SaveQuiz : SavedQuestionsEvent()
+    data object OnQuizCreateMessageSeen : SavedQuestionsEvent()
 }

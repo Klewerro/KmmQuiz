@@ -16,4 +16,8 @@
     <string name="tab_quiz">Quiz</string>
     <string name="content_description_delete_question">Delete saved question</string>
     <string name="content_description_save_question">Save question for quiz</string>
+    <string name="content_description_save_quiz">Save quiz (create new one)</string>
+    <string name="quiz_name">Quiz name</string>
+    <string name="quiz_created_successfully">Quiz created successfully.</string>
+    <string name="quiz_creation_error">Quiz creation error!</string>
 </resources>

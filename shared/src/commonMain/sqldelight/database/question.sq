@@ -6,12 +6,20 @@ CREATE TABLE questionEntity(
     incorrect_answers TEXT NOT NULL,
     type INTEGER NOT NULL,
     text TEXT NOT NULL,
-    time INTEGER NOT NULL
+    time INTEGER NOT NULL,
+    quiz_id INTEGER
 );
 
 getQuestions:
 SELECT *
 FROM questionEntity
+WHERE quiz_id IS NULL
+ORDER BY time DESC;
+
+getQuestionsForQuiz:
+SELECT *
+FROM questionEntity
+WHERE quiz_id = ?
 ORDER BY time DESC;
 
 countOfQuestionsWithText:
@@ -32,6 +40,11 @@ INTO questionEntity(
     time
 )
 VALUES (?,?, ?, ?, ?, ?, ? ,?);
+
+updateQuestionQuizId:
+UPDATE OR REPLACE questionEntity
+SET quiz_id = :quizId
+WHERE text = :text;
 
 deleteQuestionEntity:
 DELETE FROM questionEntity

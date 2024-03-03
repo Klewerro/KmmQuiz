@@ -61,7 +61,9 @@ fun RootView() {
                         state = state,
                         onEvent = { event ->
                             viewModel.onEvent(event)
-                        }
+                        },
+                        modifier = Modifier.padding(paddingValues),
+                        snackbarHostState = snackbarHostState
                     )
                 }
             }

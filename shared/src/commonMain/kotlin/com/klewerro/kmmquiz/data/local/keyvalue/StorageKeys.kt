@@ -1,4 +1,4 @@
-package com.klewerro.kmmquiz.data.local
+package com.klewerro.kmmquiz.data.local.keyvalue
 
 enum class StorageKeys {
     AMOUNT,

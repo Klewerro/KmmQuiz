@@ -12,11 +12,16 @@ import shared
 struct GetQuestionListScreen: View {
     
     private var getQuestionListUseCase: GetQuestionListUseCase // Todo: Remove?
+    private var keyValueStorage: KeyValueStorage
     @ObservedObject var viewModel: IOSGetQuestionListViewModel
     
-    init(getQuestionListUseCase: GetQuestionListUseCase) {
+    init(getQuestionListUseCase: GetQuestionListUseCase, keyValueStorage: KeyValueStorage) {
         self.getQuestionListUseCase = getQuestionListUseCase // Todo: Remove?
-        self.viewModel = IOSGetQuestionListViewModel(getQuestionListUseCase: getQuestionListUseCase)
+        self.keyValueStorage = keyValueStorage
+        self.viewModel = IOSGetQuestionListViewModel(
+            getQuestionListUseCase: getQuestionListUseCase,
+            keyValueStorage: keyValueStorage
+        )
     }
     
     var body: some View {

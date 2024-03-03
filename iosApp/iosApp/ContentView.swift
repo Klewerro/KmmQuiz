@@ -4,6 +4,9 @@ import shared
 struct ContentView: View {
     let appModule: AppModule
 	var body: some View {
-        GetQuestionListScreen(getQuestionListUseCase: appModule.getQuestionListUseCase)
+        GetQuestionListScreen(
+            getQuestionListUseCase: appModule.getQuestionListUseCase,
+            keyValueStorage: appModule.keyValueStorage
+        )
 	}
 }

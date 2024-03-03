@@ -11,6 +11,7 @@ import shared
 
 @MainActor class IOSGetQuestionListViewModel: ObservableObject {
     private var getQuestionListUseCase: GetQuestionListUseCase
+    private var keyValueStorage: KeyValueStorage
     private var handle: DisposableHandle?
     
     private let viewModel: GetQuestionListViewModel
@@ -23,10 +24,12 @@ import shared
         isChoosingQuestionCategory: false
     )
     
-    init(getQuestionListUseCase: GetQuestionListUseCase) {
+    init(getQuestionListUseCase: GetQuestionListUseCase, keyValueStorage: KeyValueStorage) {
         self.getQuestionListUseCase = getQuestionListUseCase
+        self.keyValueStorage = keyValueStorage
         self.viewModel = GetQuestionListViewModel(
             getQuestionListUseCase: getQuestionListUseCase,
+            keyValueStorage: keyValueStorage,
             coroutineScope: nil
         )
     }

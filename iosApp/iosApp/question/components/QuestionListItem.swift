@@ -55,7 +55,7 @@ struct QuestionListItem: View {
             allAnswers: [
                 "Incorrect 1",
                 "Incorrect 2",
-                "Correct answer Correct answer Correct answer Correct answer Correct answer Correct answer Correct answer",
+                "Correct answer",
                 "Incorrect 3",
             ]
         )

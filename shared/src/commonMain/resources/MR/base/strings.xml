@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="hello_world">Hello world</string>
+    <string name="get_questions">Get questions</string>
+    <string name="getting_questions">Getting questions</string>
+    <string name="number_of_questions">Number of questions</string>
+    <string name="error_service_unavailable">Service unavailable. Please try again later</string>
+    <string name="client_error">Error happened. Please contact with support.</string>
+    <string name="unknown_error">Oops, unknown error happened.</string>
+    <string name="too_many_requests_error">You can only make 1 request per 10 seconds.</string>
+    <string name="server_error">An error happened. Please try again later.</string>
+    <string name="amount_is_0_error">Question amount is 0 or empty.</string>
 </resources>

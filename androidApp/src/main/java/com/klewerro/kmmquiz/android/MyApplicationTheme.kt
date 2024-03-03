@@ -47,12 +47,11 @@ fun MyApplicationTheme(content: @Composable () -> Unit) {
 
     val typography =
         Typography(
-            bodyMedium =
-                TextStyle(
-                    fontFamily = FontFamily.Default,
-                    fontWeight = FontWeight.Normal,
-                    fontSize = 16.sp
-                )
+            bodyMedium = TextStyle(
+                fontFamily = FontFamily.Default,
+                fontWeight = FontWeight.Normal,
+                fontSize = 16.sp
+            )
         )
     val shapes =
         Shapes(

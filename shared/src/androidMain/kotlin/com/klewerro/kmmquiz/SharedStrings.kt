@@ -7,10 +7,7 @@ import dev.icerock.moko.resources.desc.StringDesc
 import dev.icerock.moko.resources.format
 
 actual class SharedStrings(private val context: Context) {
-    actual fun get(
-        id: StringResource,
-        args: List<Any>
-    ): String {
+    actual fun get(id: StringResource, args: List<Any>): String {
         return if (args.isEmpty()) {
             StringDesc.Resource(id).toString(context)
         } else {

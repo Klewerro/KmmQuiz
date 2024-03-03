@@ -5,17 +5,25 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.klewerro.kmmquiz.SharedRes
-import com.klewerro.kmmquiz.SharedStrings
-import dev.icerock.moko.resources.StringResource
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.klewerro.kmmquiz.android.question.GetQuestionListAndroidViewModel
+import com.klewerro.kmmquiz.android.question.GetQuestionListScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +33,21 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView(sharedStringResource(id = SharedRes.strings.hello_world))
+                    val snackbarHostState = remember { SnackbarHostState() }
+                    Scaffold(
+                        snackbarHost = { SnackbarHost(snackbarHostState) }
+                    ) { paddingValues ->
+                        val viewModel = hiltViewModel<GetQuestionListAndroidViewModel>()
+                        val getQuestionListState by viewModel.state.collectAsStateWithLifecycle()
+                        GetQuestionListScreen(
+                            state = getQuestionListState,
+                            onEvent = { event ->
+                                viewModel.onEvent(event)
+                            },
+                            snackbarHostState = snackbarHostState,
+                            modifier = Modifier.padding(paddingValues)
+                        )
+                    }
                 }
             }
         }
@@ -33,20 +55,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun sharedStringResource(
-    id: StringResource,
-    vararg args: Any
-): String {
-    return SharedStrings(LocalContext.current).get(id, args.toList())
-}
-
-@Composable
 fun GreetingView(text: String) {
     Text(
         text = text,
         modifier =
-            Modifier
-                .background(MaterialTheme.colorScheme.primary),
+        Modifier.background(MaterialTheme.colorScheme.primary),
         color = MaterialTheme.colorScheme.onPrimary
     )
 }

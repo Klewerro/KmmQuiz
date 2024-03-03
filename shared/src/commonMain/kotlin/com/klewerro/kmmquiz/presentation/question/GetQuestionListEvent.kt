@@ -8,4 +8,5 @@ sealed class GetQuestionListEvent {
     data object StartChoosingQuestionCategory : GetQuestionListEvent()
     data object StopChoosingQuestionCategory : GetQuestionListEvent()
     data class ChangeQuestionCategory(val questionCategory: QuestionCategory) : GetQuestionListEvent()
+    data object OnErrorSeen : GetQuestionListEvent()
 }

@@ -10,10 +10,6 @@ plugins {
     alias(libs.plugins.sqlDelightPlugin).apply(false)
 }
 
-subprojects {
-    apply(plugin = "org.jlleitschuh.gradle.ktlint") // To run ktLint in all kotlin submodules
-}
-
 buildscript {
     dependencies {
         classpath(libs.moko.resourcesGenerator)

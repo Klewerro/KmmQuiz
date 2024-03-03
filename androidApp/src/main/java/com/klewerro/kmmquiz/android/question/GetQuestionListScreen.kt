@@ -65,6 +65,9 @@ fun GetQuestionListScreen(
             GetQuestionListError.AMOUNT_IS_0 -> SharedStrings(context)
                 .get(SharedRes.strings.amount_is_0_error, emptyList())
 
+            GetQuestionListError.QUESTION_ALREADY_SAVED -> SharedStrings(context)
+                .get(SharedRes.strings.question_already_saved_error, emptyList())
+
             GetQuestionListError.SERVER_ERROR -> SharedStrings(context).get(SharedRes.strings.server_error, emptyList())
             null -> null
         }
@@ -139,7 +142,10 @@ fun GetQuestionListScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             items(state.questions) { question ->
-                QuestionListItem(question)
+                QuestionListItem(
+                    question = question,
+                    onSaveButtonClick = { onEvent(GetQuestionListEvent.SaveQuestion(question)) }
+                )
             }
         }
     }

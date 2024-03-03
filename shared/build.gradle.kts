@@ -48,6 +48,7 @@ kotlin {
 
         commonMain.dependencies {
             api(libs.moko.resources)
+            implementation(libs.kotlin.dateTime)
             implementation(libs.ktor.core)
             implementation(libs.ktor.serialization)
             implementation(libs.ktor.serializationJson)

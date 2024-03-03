@@ -10,4 +10,5 @@
     <string name="too_many_requests_error">You can only make 1 request per 10 seconds.</string>
     <string name="server_error">An error happened. Please try again later.</string>
     <string name="amount_is_0_error">Question amount is 0 or empty.</string>
+    <string name="question_already_saved_error">Question already saved.</string>
 </resources>

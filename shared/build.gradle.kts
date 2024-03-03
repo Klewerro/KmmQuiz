@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.sqlDelightPlugin)
     id("dev.icerock.mobile.multiplatform-resources") // Must be at the end!
 }
 
@@ -51,6 +52,8 @@ kotlin {
             implementation(libs.ktor.serialization)
             implementation(libs.ktor.serializationJson)
             implementation(libs.bundles.multiplatformSettings)
+            implementation(libs.sqlDelight.runtime)
+            implementation(libs.sqlDelight.coroutineExtensions)
         }
 
         commonTest.dependencies {
@@ -59,6 +62,7 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.ktor.client.android)
+            implementation(libs.sqlDelight.android.driver)
         }
 
         val iosX64Main by getting
@@ -71,6 +75,7 @@ kotlin {
             iosSimulatorArm64Main.dependsOn(this)
             dependencies {
                 implementation(libs.ktor.client.ios)
+                implementation(libs.sqlDelight.native.driver)
             }
         }
 
@@ -102,4 +107,12 @@ multiplatformResources {
     multiplatformResourcesPackage = "com.klewerro.kmmquiz"
     multiplatformResourcesClassName = "SharedRes"
     disableStaticFrameworkWarning = true
+}
+
+sqldelight {
+    databases {
+        create("QuizDb") {
+            packageName = "com.klewerro.kmmquiz.database"
+        }
+    }
 }

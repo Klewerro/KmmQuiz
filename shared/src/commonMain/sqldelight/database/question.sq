@@ -1,0 +1,24 @@
+CREATE TABLE questionEntity(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    category TEXT NOT NULL,
+    difficulty TEXT NOT NULL,
+    correct_answer TEXT NOT NULL,
+    incorrect_answers TEXT NOT NULL,
+    type TEXT NOT NULL,
+    text TEXT NOT NULL,
+    time INTEGER NOT NULL
+);
+
+insertQuestionEntity:
+INSERT OR REPLACE
+INTO questionEntity(
+    id,
+    category,
+    difficulty,
+    correct_answer,
+    incorrect_answers,
+    type,
+    text,
+    time
+)
+VALUES (?,?, ?, ?, ?, ?, ? ,?);

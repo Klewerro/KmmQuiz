@@ -1,6 +1,9 @@
 package com.klewerro.kmmquiz.android.di
 
+import android.app.Application
+import app.cash.sqldelight.db.SqlDriver
 import com.klewerro.kmmquiz.data.local.SharedKeyValueStorage
+import com.klewerro.kmmquiz.data.local.db.DatabaseDriverFactory
 import com.klewerro.kmmquiz.data.remote.HttpClientFactory
 import com.klewerro.kmmquiz.data.remote.KtorQuestionClient
 import com.klewerro.kmmquiz.domain.KeyValueStorage
@@ -31,5 +34,11 @@ object AppModule {
     @Singleton
     fun provideKeyValueStorage(): KeyValueStorage {
         return SharedKeyValueStorage()
+    }
+
+    @Provides
+    @Singleton
+    fun provideDatabaseDriver(app: Application): SqlDriver {
+        return DatabaseDriverFactory(app).create()
     }
 }

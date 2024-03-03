@@ -11,4 +11,7 @@
     <string name="server_error">An error happened. Please try again later.</string>
     <string name="amount_is_0_error">Question amount is 0 or empty.</string>
     <string name="question_already_saved_error">Question already saved.</string>
+    <string name="tab_get_questions">Get questions</string>
+    <string name="tab_saved_questions">Saved questions</string>
+    <string name="tab_quiz">Quiz</string>
 </resources>

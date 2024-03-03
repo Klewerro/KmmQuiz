@@ -4,6 +4,7 @@ import app.cash.sqldelight.coroutines.asFlow
 import app.cash.sqldelight.coroutines.mapToList
 import com.klewerro.kmmquiz.database.QuizDb
 import com.klewerro.kmmquiz.domain.LocalDbDataSource
+import com.klewerro.kmmquiz.domain.mapper.QuestionEntityMapper.mapToQuestion
 import com.klewerro.kmmquiz.domain.model.question.Question
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
@@ -20,6 +21,16 @@ class SqlDelightQuizDataSource(db: QuizDb) : LocalDbDataSource {
     override val questions = questionQueries.getQuestions()
         .asFlow()
         .mapToList(Dispatchers.IO)
+
+    override val quizList = quizQueries.getQuizList()
+        .asFlow()
+        .mapToList(Dispatchers.IO)
+
+    override suspend fun getQuizQuestions(quizId: Long): List<Question> = withContext(Dispatchers.IO) {
+        questionQueries.getQuestionsForQuiz(quizId).executeAsList().map {
+            it.mapToQuestion()
+        }
+    }
 
     override suspend fun isQuestionWithTextAlreadySaved(question: Question): Boolean {
         return questionQueries.countOfQuestionsWithText(question.text).executeAsOne() > 0

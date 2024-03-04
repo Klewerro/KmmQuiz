@@ -9,6 +9,11 @@ SELECT *
 FROM quizEntity
 ORDER BY time DESC;
 
+getQuiz:
+SELECT *
+FROM quizEntity
+WHERE id = ?;
+
 insertQuizEntity:
 INSERT OR IGNORE
 INTO quizEntity(

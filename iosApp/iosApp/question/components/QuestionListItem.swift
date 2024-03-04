@@ -33,6 +33,18 @@ struct QuestionListItem: View {
                 )
                 
             }
+            let difficultyText = switch (question.difficulty) {
+                case .easy: SharedStrings().get(id: SharedRes.strings().easy, args: [])
+                case .medium: SharedStrings().get(id: SharedRes.strings().medium, args: [])
+                case .hard: SharedStrings().get(id: SharedRes.strings().hard, args: [])
+                default:
+                    SharedStrings().get(id: SharedRes.strings().easy, args: [])
+            }
+            Text(
+                difficultyText
+            )
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(10)
             List {
                 Picker("Answers", selection: $selected) {
                     ForEach(question.allAnswers, id: \.self) { answerText in
@@ -45,11 +57,10 @@ struct QuestionListItem: View {
             .scrollContentBackground(.hidden)
              .background(Color(SharedRes.colors().secondaryContainer.getUiColor()))
         }
-        .frame(maxWidth: .infinity, minHeight: CGFloat(question.type == .multiple ? 340 : 220), alignment: .leading)
+        .frame(maxWidth: .infinity, minHeight: CGFloat(question.type == .multiple ? 370 : 250), alignment: .leading)
         .padding(8)
         .background(Color(SharedRes.colors().secondaryContainer.getUiColor()))
         .cornerRadius(15.0)
-        
     }
 }
 

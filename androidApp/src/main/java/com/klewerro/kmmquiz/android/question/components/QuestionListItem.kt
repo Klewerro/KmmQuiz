@@ -20,10 +20,6 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -41,8 +37,11 @@ import com.klewerro.kmmquiz.domain.model.question.QuestionType
 @Composable
 fun QuestionListItem(
     question: Question,
-    onSaveButtonClick: () -> Unit,
+    showSaveButton: Boolean,
     modifier: Modifier = Modifier,
+    selectedAnswerIndex: Int = -1,
+    onSaveButtonClick: () -> Unit = {},
+    onRadioButtonClick: (Int) -> Unit = {},
     backgroundColor: Color = MaterialTheme.colorScheme.secondaryContainer
 ) {
     Column(
@@ -52,9 +51,6 @@ fun QuestionListItem(
             .background(backgroundColor)
             .padding(8.dp)
     ) {
-        var selectedItemIndex by remember {
-            mutableIntStateOf(-1)
-        }
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
@@ -65,35 +61,47 @@ fun QuestionListItem(
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSecondaryContainer,
                 modifier = Modifier
-                    .padding(end = 8.dp)
                     .alignByBaseline()
                     .weight(1f)
             )
-            Button(
-                onClick = onSaveButtonClick,
-                modifier = Modifier
-                    .size(50.dp) // 50dp for equal circle shape
-                    .alignByBaseline(),
-                shape = CircleShape,
-                contentPadding = PaddingValues(0.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Save,
-                    contentDescription = sharedStringResource(SharedRes.strings.content_description_save_question)
-                )
+            if (showSaveButton) {
+                Button(
+                    onClick = onSaveButtonClick,
+                    modifier = Modifier
+                        .padding(start = 8.dp)
+                        .size(50.dp) // 50dp for equal circle shape
+                        .alignByBaseline(),
+                    shape = CircleShape,
+                    contentPadding = PaddingValues(0.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Save,
+                        contentDescription = sharedStringResource(SharedRes.strings.content_description_save_question)
+                    )
+                }
             }
         }
+        Text(
+            text = sharedStringResource(
+                when (question.difficulty) {
+                    QuestionDifficulty.EASY -> SharedRes.strings.easy
+                    QuestionDifficulty.MEDIUM -> SharedRes.strings.medium
+                    QuestionDifficulty.HARD -> SharedRes.strings.hard
+                }
+            ),
+            modifier = Modifier.align(Alignment.End).padding(16.dp)
+        )
         question.allAnswers.forEachIndexed { index, answerText ->
             Row(
                 modifier = Modifier.clickable {
-                    selectedItemIndex = index
+                    onRadioButtonClick(index)
                 },
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 RadioButton(
-                    selected = index == selectedItemIndex,
+                    selected = index == selectedAnswerIndex,
                     onClick = {
-                        selectedItemIndex = index
+                        onRadioButtonClick(index)
                     },
                     colors = RadioButtonDefaults.colors(
                         selectedColor = MaterialTheme.colorScheme.secondary,
@@ -127,7 +135,7 @@ fun QuestionListItemPreview() {
     MyApplicationTheme {
         QuestionListItem(
             question = question,
-            onSaveButtonClick = {}
+            showSaveButton = true
         )
     }
 }
@@ -146,7 +154,7 @@ fun BooleanQuestionListItemPreview() {
     MyApplicationTheme {
         QuestionListItem(
             question = question,
-            onSaveButtonClick = {}
+            showSaveButton = true
         )
     }
 }

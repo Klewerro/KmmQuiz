@@ -17,7 +17,15 @@
     <string name="content_description_delete_question">Delete saved question</string>
     <string name="content_description_save_question">Save question for quiz</string>
     <string name="content_description_save_quiz">Save quiz (create new one)</string>
+    <string name="content_description_cancel_quiz">Cancel filling quiz</string>
     <string name="quiz_name">Quiz name</string>
     <string name="quiz_created_successfully">Quiz created successfully.</string>
     <string name="quiz_creation_error">Quiz creation error!</string>
+    <string name="save_answers">Save answers</string>
+    <string name="quiz_progress">Quiz progress: %d / %d</string>
+    <string name="questions_size">Questions: %d</string>
+    <string name="save_time">Save time: %s</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>

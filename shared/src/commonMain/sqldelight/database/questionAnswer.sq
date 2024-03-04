@@ -1,0 +1,18 @@
+CREATE TABLE questionAnswerEntity (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    answer TEXT NOT NULL,
+    correct_answer TEXT NOT NULL,
+    question_text TEXT NOT NULL,
+    quiz_id INTEGER
+);
+
+
+insertQuestionAnswerEntity:
+INSERT OR REPLACE
+INTO questionAnswerEntity(
+    id,
+    answer,
+    correct_answer,
+    question_text,
+    quiz_id
+) VALUES (?, ?, ?, ?, ?);

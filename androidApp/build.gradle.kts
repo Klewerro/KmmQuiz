@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.bundles.hilt)
     kapt(libs.bundles.hiltKapt)
     implementation(libs.ktor.client.android)
+    implementation(libs.kotlin.dateTime)
 
     debugImplementation(libs.compose.ui.tooling)
 }

@@ -8,4 +8,10 @@ data class Quiz(
     val title: String,
     val time: LocalDateTime,
     val questions: List<Question>
-)
+) {
+    fun getFormattedTime(): String {
+        return time.toString()
+            .replace("T", ", ")
+            .substringBeforeLast(':')
+    }
+}

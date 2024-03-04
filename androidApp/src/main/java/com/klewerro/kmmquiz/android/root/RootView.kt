@@ -19,6 +19,8 @@ import androidx.navigation.compose.rememberNavController
 import com.klewerro.kmmquiz.android.core.Route
 import com.klewerro.kmmquiz.android.question.GetQuestionListAndroidViewModel
 import com.klewerro.kmmquiz.android.question.GetQuestionListScreen
+import com.klewerro.kmmquiz.android.quiz.QuizAndroidViewModel
+import com.klewerro.kmmquiz.android.quiz.QuizScreen
 import com.klewerro.kmmquiz.android.saved.SavedQuestionsAndroidViewModel
 import com.klewerro.kmmquiz.android.saved.SavedQuestionsScreen
 
@@ -37,6 +39,9 @@ fun RootView() {
         val savedQuestionsViewModel = hiltViewModel<SavedQuestionsAndroidViewModel>()
         val savedQuestionsState by savedQuestionsViewModel.state.collectAsStateWithLifecycle()
 
+        val quizViewModel = hiltViewModel<QuizAndroidViewModel>()
+        val quizState by quizViewModel.state.collectAsStateWithLifecycle()
+
         Scaffold(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             bottomBar = {
@@ -44,10 +49,10 @@ fun RootView() {
                     navController,
                     getQuestionListState.questions.size,
                     savedQuestionsState.savedQuestions.size,
-                    null
+                    quizState.quizList.size
                 )
             }
-        ) { paddingValues ->
+        ) { scaffoldPaddingValues ->
 
             NavHost(
                 navController = navController,
@@ -60,7 +65,7 @@ fun RootView() {
                             getQuestionListViewModel.onEvent(event)
                         },
                         snackbarHostState = snackbarHostState,
-                        modifier = Modifier.padding(paddingValues)
+                        modifier = Modifier.padding(scaffoldPaddingValues)
                     )
                 }
                 composable(Route.SAVED_QUESTIONS) {
@@ -69,8 +74,17 @@ fun RootView() {
                         onEvent = { event ->
                             savedQuestionsViewModel.onEvent(event)
                         },
-                        modifier = Modifier.padding(paddingValues),
+                        modifier = Modifier.padding(scaffoldPaddingValues),
                         snackbarHostState = snackbarHostState
+                    )
+                }
+                composable(Route.QUIZ) {
+                    QuizScreen(
+                        state = quizState,
+                        onEvent = { event ->
+                            quizViewModel.onEvent(event)
+                        },
+                        modifier = Modifier.padding(scaffoldPaddingValues)
                     )
                 }
             }

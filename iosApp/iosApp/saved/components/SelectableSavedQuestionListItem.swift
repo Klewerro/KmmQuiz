@@ -44,6 +44,18 @@ struct SelectableSavedQuestionListItem: View {
                     )
                     
                 }
+                let difficultyText = switch (selectableSavedQuestion.question.difficulty) {
+                    case .easy: SharedStrings().get(id: SharedRes.strings().easy, args: [])
+                    case .medium: SharedStrings().get(id: SharedRes.strings().medium, args: [])
+                    case .hard: SharedStrings().get(id: SharedRes.strings().hard, args: [])
+                    default:
+                        SharedStrings().get(id: SharedRes.strings().easy, args: [])
+                }
+                Text(
+                    difficultyText
+                )
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(10)
                 List {
                     Picker("Answers", selection: $selected) {
                         ForEach(selectableSavedQuestion.question.allAnswers, id: \.self) { answerText in
@@ -60,7 +72,7 @@ struct SelectableSavedQuestionListItem: View {
                 .background(selectableSavedQuestion.isSelected ? backgroundColorSelected : backgroundColorUnselected)
             }
         }
-        .frame(maxWidth: .infinity, minHeight: CGFloat(selectableSavedQuestion.question.type == .multiple ? 340 : 220), alignment: .leading)
+        .frame(maxWidth: .infinity, minHeight: CGFloat(selectableSavedQuestion.question.type == .multiple ? 370 : 250), alignment: .leading)
         .padding(8)
         .background(selectableSavedQuestion.isSelected ? backgroundColorSelected : backgroundColorUnselected)
         .cornerRadius(15.0)

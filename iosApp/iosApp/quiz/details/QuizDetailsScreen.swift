@@ -11,8 +11,17 @@ import shared
 
 struct QuizDetailsScreen: View {
     var quiz: Quiz
+//    @ObservedObject var viewModel: IOSQuizDetailsViewModel
+    
+    init(quiz: Quiz) {
+        self.quiz = quiz
+//        self.viewModel = viewModel
+    }
+    
     
     var body: some View {
-        Text("Quiz details screen. Quiz title is: " + quiz.title)
+        VStack {
+            Text("Quiz details screen. Quiz title is: " + quiz.title)
+        }
     }
 }

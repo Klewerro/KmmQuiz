@@ -10,20 +10,11 @@ import SwiftUI
 import shared
 
 struct SavedQuestionsScreen: View {
-    private var savedQuestionsUseCase: SavedQuestionsUseCase
-    private var localDbDataSource: LocalDbDataSource
     @ObservedObject var viewModel: IOSSavedQuestionsViewModel
     
-    init(savedQuestionsUseCase: SavedQuestionsUseCase, localDbDataSource: LocalDbDataSource) {
-        self.savedQuestionsUseCase = savedQuestionsUseCase
-        self.localDbDataSource = localDbDataSource
-        self.viewModel = IOSSavedQuestionsViewModel(
-            savedQuestionsUseCase: savedQuestionsUseCase,
-            localDbDataSource: localDbDataSource
-        )
+    init(viewModel: IOSSavedQuestionsViewModel) {
+        self.viewModel = viewModel
     }
-    
-    @State private var isAnyQuestionSelected = false
     
     var body: some View {
         ZStack {

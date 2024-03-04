@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.klewerro.kmmquiz.SharedRes
+import com.klewerro.kmmquiz.android.core.sharedStringResource
 import com.klewerro.kmmquiz.domain.model.Quiz
 
 @Composable
@@ -36,8 +38,8 @@ fun QuizListItem(
     ) {
         Text(text = quiz.title)
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(text = "Questions: ${quiz.questions.size}")
-            Text(text = "Save time: ${quiz.getFormattedTime()}")
+            Text(sharedStringResource(SharedRes.strings.questions_size, quiz.questions.size))
+            Text(sharedStringResource(SharedRes.strings.save_time, quiz.getFormattedTime()))
         }
     }
 }

@@ -20,6 +20,8 @@
 		AECD5B322B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B312B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift */; };
 		AECD5B342B952E260024C954 /* SelectableSavedQuestionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B332B952E260024C954 /* SelectableSavedQuestionListItem.swift */; };
 		AECD5B362B953F180024C954 /* SaveQuizHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B352B953F180024C954 /* SaveQuizHeader.swift */; };
+		AECD5B3C2B9588020024C954 /* IOSQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B3B2B9588020024C954 /* IOSQuizViewModel.swift */; };
+		AECD5B3E2B9589260024C954 /* QuizScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B3D2B9589260024C954 /* QuizScreen.swift */; };
 		AEF20D4E2B9248EA00836818 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20D4D2B9248EA00836818 /* ProgressButton.swift */; };
 		AEF20D502B929D7000836818 /* QuestionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */; };
 		AEF2E8F42B940A2000152D7B /* ErrorMessageSheetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2E8F32B940A2000152D7B /* ErrorMessageSheetContent.swift */; };
@@ -43,6 +45,8 @@
 		AECD5B312B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSSavedQuestionsViewModel.swift; sourceTree = "<group>"; };
 		AECD5B332B952E260024C954 /* SelectableSavedQuestionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSavedQuestionListItem.swift; sourceTree = "<group>"; };
 		AECD5B352B953F180024C954 /* SaveQuizHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveQuizHeader.swift; sourceTree = "<group>"; };
+		AECD5B3B2B9588020024C954 /* IOSQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSQuizViewModel.swift; sourceTree = "<group>"; };
+		AECD5B3D2B9589260024C954 /* QuizScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizScreen.swift; sourceTree = "<group>"; };
 		AEF20D4D2B9248EA00836818 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
 		AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsHeader.swift; sourceTree = "<group>"; };
 		AEF2E8F32B940A2000152D7B /* ErrorMessageSheetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageSheetContent.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				AECD5B3A2B9587D00024C954 /* quiz */,
 				AECD5B2D2B9529080024C954 /* saved */,
 				AEB049222B923F220052DCA5 /* question */,
 				AEB0491F2B90BCA10052DCA5 /* extension */,
@@ -151,6 +156,23 @@
 			children = (
 				AECD5B332B952E260024C954 /* SelectableSavedQuestionListItem.swift */,
 				AECD5B352B953F180024C954 /* SaveQuizHeader.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		AECD5B3A2B9587D00024C954 /* quiz */ = {
+			isa = PBXGroup;
+			children = (
+				AECD5B3F2B958A260024C954 /* components */,
+				AECD5B3B2B9588020024C954 /* IOSQuizViewModel.swift */,
+				AECD5B3D2B9589260024C954 /* QuizScreen.swift */,
+			);
+			path = quiz;
+			sourceTree = "<group>";
+		};
+		AECD5B3F2B958A260024C954 /* components */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -307,10 +329,12 @@
 				AEB049212B90BCDB0052DCA5 /* ColorExtension.swift in Sources */,
 				AE763B982B92B154003C8808 /* QuestionListItem.swift in Sources */,
 				AECD5B362B953F180024C954 /* SaveQuizHeader.swift in Sources */,
+				AECD5B3C2B9588020024C954 /* IOSQuizViewModel.swift in Sources */,
 				AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				AECD5B342B952E260024C954 /* SelectableSavedQuestionListItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				AECD5B3E2B9589260024C954 /* QuizScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

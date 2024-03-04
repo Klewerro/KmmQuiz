@@ -6,6 +6,7 @@ struct ContentView: View {
     
     @ObservedObject var getQuestionListViewModel: IOSGetQuestionListViewModel
     @ObservedObject var savedQuestionsViewModel: IOSSavedQuestionsViewModel
+    @ObservedObject var quizViewModel: IOSQuizViewModel
     
     init(appModule: AppModule) {
         self.appModule = appModule
@@ -18,6 +19,7 @@ struct ContentView: View {
             savedQuestionsUseCase: appModule.savedQuestionsUseCase,
             localDbDataSource: appModule.localDbDataSource
         )
+        self.quizViewModel = IOSQuizViewModel(quizListUseCase: appModule.quizListUseCase)
     }
     
 	var body: some View {
@@ -35,14 +37,23 @@ struct ContentView: View {
                 Text("Saved questions")
             }
             .badge(savedQuestionsViewModel.state.savedQuestions.count)
+            
+            QuizScreen(viewModel: quizViewModel)
+            .tabItem {
+                Image(systemName: "doc.questionmark")
+                Text("Quiz")
+            }
+            .badge(quizViewModel.state.quizList.count)
         }
         .onAppear {
             getQuestionListViewModel.startObserving()
             savedQuestionsViewModel.startObserving()
+            quizViewModel.startObserving()
         }
         .onDisappear {
             getQuestionListViewModel.dispose()
             savedQuestionsViewModel.dispose()
+            quizViewModel.dispose()
         }
 	}
 }

@@ -23,4 +23,6 @@
     <string name="quiz_creation_error">Quiz creation error!</string>
     <string name="save_answers">Save answers</string>
     <string name="quiz_progress">Quiz progress: %d / %d</string>
+    <string name="questions_size">Questions: %d</string>
+    <string name="save_time">Save time: %s</string>
 </resources>

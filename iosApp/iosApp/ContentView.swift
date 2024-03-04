@@ -38,7 +38,9 @@ struct ContentView: View {
             }
             .badge(savedQuestionsViewModel.state.savedQuestions.count)
             
-            QuizScreen(viewModel: quizViewModel)
+            NavigationView {
+                QuizScreen(viewModel: quizViewModel)
+            }
             .tabItem {
                 Image(systemName: "doc.questionmark")
                 Text("Quiz")

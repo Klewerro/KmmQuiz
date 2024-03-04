@@ -28,7 +28,6 @@ struct SavedQuestionsScreen: View {
     var body: some View {
         ZStack {
             ScrollView {
-                // Add header here
                 if viewModel.state.isAnyQuestionSelected() {
                     SaveQuizHeader(
                         quizTitleText: Binding(
@@ -57,7 +56,6 @@ struct SavedQuestionsScreen: View {
                 }
             }
             
-            // Add button here
             if viewModel.state.isAnyQuestionSelected() {
                 VStack {
                     Spacer()
@@ -76,7 +74,38 @@ struct SavedQuestionsScreen: View {
             }
             
         }
-        // add snackbar here
+        .sheet(
+            isPresented: Binding(
+                get: { viewModel.state.saveQuizResult != nil },
+                set: {_ in
+                    viewModel.onEvent(.OnQuizCreateMessageSeen())
+                }
+            )
+        ) {
+            ZStack {
+                if let saveQuizResultValue = viewModel.state.saveQuizResult {
+                    let message = if saveQuizResultValue.boolValue {
+                        SharedStrings().get(id: SharedRes.strings().quiz_created_successfully, args: [])
+                    } else {
+                        SharedStrings().get(id: SharedRes.strings().quiz_creation_error, args: [])
+                    }
+                    Color(SharedRes.colors().primary.getUiColor())
+                    Text(message)
+                        .foregroundStyle(Color(SharedRes.colors().onPrimary.getUiColor()))
+                }
+            }
+            .task {
+                do {
+                    try await Task.sleep(nanoseconds: 3_000_000_000)
+                    viewModel.onEvent(.OnQuizCreateMessageSeen())
+                } catch {
+                    viewModel.onEvent(.OnQuizCreateMessageSeen())
+                }
+            }
+            .ignoresSafeArea()
+            .presentationDetents([.fraction(0.1)])
+        
+        }
         .padding(16)
         .onAppear {
             viewModel.startObserving()

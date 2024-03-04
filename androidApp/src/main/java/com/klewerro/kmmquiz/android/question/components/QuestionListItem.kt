@@ -81,6 +81,16 @@ fun QuestionListItem(
                 }
             }
         }
+        Text(
+            text = sharedStringResource(
+                when (question.difficulty) {
+                    QuestionDifficulty.EASY -> SharedRes.strings.easy
+                    QuestionDifficulty.MEDIUM -> SharedRes.strings.medium
+                    QuestionDifficulty.HARD -> SharedRes.strings.hard
+                }
+            ),
+            modifier = Modifier.align(Alignment.End).padding(16.dp)
+        )
         question.allAnswers.forEachIndexed { index, answerText ->
             Row(
                 modifier = Modifier.clickable {

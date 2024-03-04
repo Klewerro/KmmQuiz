@@ -25,4 +25,7 @@
     <string name="quiz_progress">Quiz progress: %d / %d</string>
     <string name="questions_size">Questions: %d</string>
     <string name="save_time">Save time: %s</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
 </resources>

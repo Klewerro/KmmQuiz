@@ -31,7 +31,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.klewerro.kmmquiz.SharedRes
 import com.klewerro.kmmquiz.android.MyApplicationTheme
+import com.klewerro.kmmquiz.android.core.sharedStringResource
 import com.klewerro.kmmquiz.domain.model.question.Question
 import com.klewerro.kmmquiz.domain.model.question.QuestionDifficulty
 import com.klewerro.kmmquiz.domain.model.question.QuestionType
@@ -75,8 +77,10 @@ fun QuestionListItem(
                 shape = CircleShape,
                 contentPadding = PaddingValues(0.dp)
             ) {
-//                Text(text = "Save")
-                Icon(imageVector = Icons.Default.Save, contentDescription = "Save question for quiz")
+                Icon(
+                    imageVector = Icons.Default.Save,
+                    contentDescription = sharedStringResource(SharedRes.strings.content_description_save_question)
+                )
             }
         }
         question.allAnswers.forEachIndexed { index, answerText ->
@@ -91,10 +95,6 @@ fun QuestionListItem(
                     onClick = {
                         selectedItemIndex = index
                     },
-//                    colors = RadioButtonColors(
-//                        selectedColor = MaterialTheme.colorScheme.onTertiary,
-//                        unselectedColor = MaterialTheme.colorScheme.onTertiary
-//                    )
                     colors = RadioButtonDefaults.colors(
                         selectedColor = MaterialTheme.colorScheme.secondary,
                         unselectedColor = MaterialTheme.colorScheme.outline

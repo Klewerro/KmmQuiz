@@ -10,21 +10,11 @@ import SwiftUI
 import shared
 
 struct GetQuestionListScreen: View {
-    
-    private var getQuestionListUseCase: GetQuestionListUseCase // Todo: Remove?
-    private var keyValueStorage: KeyValueStorage
-    private var localDbDataSource: LocalDbDataSource
+
     @ObservedObject var viewModel: IOSGetQuestionListViewModel
     
-    init(getQuestionListUseCase: GetQuestionListUseCase, keyValueStorage: KeyValueStorage, localDbDataSource: LocalDbDataSource) {
-        self.getQuestionListUseCase = getQuestionListUseCase // Todo: Remove?
-        self.keyValueStorage = keyValueStorage
-        self.localDbDataSource = localDbDataSource
-        self.viewModel = IOSGetQuestionListViewModel(
-            getQuestionListUseCase: getQuestionListUseCase,
-            keyValueStorage: keyValueStorage,
-            localDbDataSource: localDbDataSource
-        )
+    init(viewModel: IOSGetQuestionListViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
@@ -80,12 +70,6 @@ struct GetQuestionListScreen: View {
             .ignoresSafeArea()
             .presentationDetents([.fraction(0.1)])
         
-        }
-        .onAppear {
-            viewModel.startObserving()
-        }
-        .onDisappear {
-            viewModel.dispose()
         }
     }
 }

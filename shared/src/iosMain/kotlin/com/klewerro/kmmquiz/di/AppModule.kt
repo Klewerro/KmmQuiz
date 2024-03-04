@@ -9,6 +9,8 @@ import com.klewerro.kmmquiz.database.QuizDb
 import com.klewerro.kmmquiz.domain.LocalDbDataSource
 import com.klewerro.kmmquiz.domain.QuestionClient
 import com.klewerro.kmmquiz.domain.usecase.GetQuestionListUseCase
+import com.klewerro.kmmquiz.domain.usecase.QuizListUseCase
+import com.klewerro.kmmquiz.domain.usecase.SavedQuestionsUseCase
 
 class AppModule {
 
@@ -16,10 +18,6 @@ class AppModule {
         KtorQuestionClient(
             HttpClientFactory().create()
         )
-    }
-
-    val getQuestionListUseCase by lazy {
-        GetQuestionListUseCase(questionClient)
     }
 
     val keyValueStorage by lazy {
@@ -32,5 +30,15 @@ class AppModule {
                 DatabaseDriverFactory().create()
             )
         )
+    }
+
+    val getQuestionListUseCase by lazy {
+        GetQuestionListUseCase(questionClient)
+    }
+
+    val savedQuestionsUseCase = SavedQuestionsUseCase(localDbDataSource)
+
+    val quizListUseCase by lazy {
+        QuizListUseCase(localDbDataSource)
     }
 }

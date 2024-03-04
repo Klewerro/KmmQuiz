@@ -11,4 +11,13 @@
     <string name="server_error">An error happened. Please try again later.</string>
     <string name="amount_is_0_error">Question amount is 0 or empty.</string>
     <string name="question_already_saved_error">Question already saved.</string>
+    <string name="tab_get_questions">Get questions</string>
+    <string name="tab_saved_questions">Saved questions</string>
+    <string name="tab_quiz">Quiz</string>
+    <string name="content_description_delete_question">Delete saved question</string>
+    <string name="content_description_save_question">Save question for quiz</string>
+    <string name="content_description_save_quiz">Save quiz (create new one)</string>
+    <string name="quiz_name">Quiz name</string>
+    <string name="quiz_created_successfully">Quiz created successfully.</string>
+    <string name="quiz_creation_error">Quiz creation error!</string>
 </resources>

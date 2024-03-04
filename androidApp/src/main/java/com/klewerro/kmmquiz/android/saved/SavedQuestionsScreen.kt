@@ -58,7 +58,7 @@ fun SavedQuestionsScreen(
 
     Box(modifier = modifier) {
         AnimatedVisibility(
-            visible = state.savedQuestions.any { it.isSelected },
+            visible = state.isAnyQuestionSelected(),
             enter = expandHorizontally(),
             exit = shrinkHorizontally(),
             modifier = Modifier
@@ -70,7 +70,7 @@ fun SavedQuestionsScreen(
                 onClick = { /*Do nothing*/ }
             ) {
                 Text(
-                    text = state.savedQuestions.count { it.isSelected }.toString(),
+                    text = state.selectedQuestionsCount().toString(),
                     fontSize = 18.sp
                 )
             }
@@ -83,8 +83,8 @@ fun SavedQuestionsScreen(
         ) {
             item {
                 SaveQuizHeader(
-                    state.savedQuestions.any { it.isSelected },
-                    state.newQuizName,
+                    isVisible = state.isAnyQuestionSelected(),
+                    textValue = state.newQuizName,
                     onTextChange = {
                         onEvent(SavedQuestionsEvent.ChangeQuizNameText(it))
                     },

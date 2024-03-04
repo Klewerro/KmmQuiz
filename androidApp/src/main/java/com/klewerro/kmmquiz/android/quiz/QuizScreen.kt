@@ -27,7 +27,12 @@ fun QuizScreen(state: QuizState, onEvent: (QuizEvent) -> Unit, modifier: Modifie
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             items(state.quizList) { quiz ->
-                QuizListItem(quiz)
+                QuizListItem(
+                    quiz = quiz,
+                    onRootClick = {
+                        onEvent(QuizEvent.GoToQuestions(quiz.id))
+                    }
+                )
             }
         }
     }

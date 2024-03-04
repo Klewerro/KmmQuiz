@@ -1,6 +1,7 @@
 package com.klewerro.kmmquiz.android.quiz.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,6 +20,7 @@ import com.klewerro.kmmquiz.domain.model.Quiz
 @Composable
 fun QuizListItem(
     quiz: Quiz,
+    onRootClick: () -> Unit,
     modifier: Modifier = Modifier,
     backgroundColor: Color = MaterialTheme.colorScheme.primaryContainer
 ) {
@@ -27,6 +29,9 @@ fun QuizListItem(
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp))
             .background(backgroundColor)
+            .clickable {
+                onRootClick()
+            }
             .padding(8.dp)
     ) {
         Text(text = quiz.title)

@@ -144,6 +144,7 @@ fun GetQuestionListScreen(
             items(state.questions) { question ->
                 QuestionListItem(
                     question = question,
+                    showSaveButton = true,
                     onSaveButtonClick = { onEvent(GetQuestionListEvent.SaveQuestion(question)) }
                 )
             }

@@ -20,7 +20,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Lint
-        run: bash ./gradlew ktlintCheck
+        run: bash ./gradlew --no-build-cache ktlintCheck
 
 #     App module
       - name: Upload Android app module lint results

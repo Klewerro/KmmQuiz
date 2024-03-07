@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,21 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		24131AF020ADDD3C1B6A2880 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 198A3B9E2D21D2D6D4432ED1 /* Pods_iosApp.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		AE763B982B92B154003C8808 /* QuestionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE763B972B92B154003C8808 /* QuestionListItem.swift */; };
+		AEB049212B90BCDB0052DCA5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049202B90BCDB0052DCA5 /* ColorExtension.swift */; };
+		AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */; };
+		AEB049262B923F5F0052DCA5 /* GetQuestionListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */; };
+		AECD5B302B952A590024C954 /* SavedQuestionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B2F2B952A590024C954 /* SavedQuestionsScreen.swift */; };
+		AECD5B322B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B312B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift */; };
+		AECD5B342B952E260024C954 /* SelectableSavedQuestionListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B332B952E260024C954 /* SelectableSavedQuestionListItem.swift */; };
+		AECD5B362B953F180024C954 /* SaveQuizHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B352B953F180024C954 /* SaveQuizHeader.swift */; };
+		AECD5B3C2B9588020024C954 /* IOSQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B3B2B9588020024C954 /* IOSQuizViewModel.swift */; };
+		AECD5B3E2B9589260024C954 /* QuizScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B3D2B9589260024C954 /* QuizScreen.swift */; };
+		AECD5B422B958F6A0024C954 /* QuizDetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B412B958F6A0024C954 /* QuizDetailsScreen.swift */; };
+		AECD5B442B9594310024C954 /* IOSQuizDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECD5B432B9594310024C954 /* IOSQuizDetailsViewModel.swift */; };
+		AEF20D4E2B9248EA00836818 /* ProgressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20D4D2B9248EA00836818 /* ProgressButton.swift */; };
+		AEF20D502B929D7000836818 /* QuestionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */; };
+		AEF2E8F42B940A2000152D7B /* ErrorMessageSheetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2E8F32B940A2000152D7B /* ErrorMessageSheetContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +39,21 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE763B972B92B154003C8808 /* QuestionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionListItem.swift; sourceTree = "<group>"; };
+		AEB049202B90BCDB0052DCA5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSGetQuestionListViewModel.swift; sourceTree = "<group>"; };
+		AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionListScreen.swift; sourceTree = "<group>"; };
+		AECD5B2F2B952A590024C954 /* SavedQuestionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedQuestionsScreen.swift; sourceTree = "<group>"; };
+		AECD5B312B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSSavedQuestionsViewModel.swift; sourceTree = "<group>"; };
+		AECD5B332B952E260024C954 /* SelectableSavedQuestionListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSavedQuestionListItem.swift; sourceTree = "<group>"; };
+		AECD5B352B953F180024C954 /* SaveQuizHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveQuizHeader.swift; sourceTree = "<group>"; };
+		AECD5B3B2B9588020024C954 /* IOSQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSQuizViewModel.swift; sourceTree = "<group>"; };
+		AECD5B3D2B9589260024C954 /* QuizScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizScreen.swift; sourceTree = "<group>"; };
+		AECD5B412B958F6A0024C954 /* QuizDetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDetailsScreen.swift; sourceTree = "<group>"; };
+		AECD5B432B9594310024C954 /* IOSQuizDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSQuizDetailsViewModel.swift; sourceTree = "<group>"; };
+		AEF20D4D2B9248EA00836818 /* ProgressButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressButton.swift; sourceTree = "<group>"; };
+		AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsHeader.swift; sourceTree = "<group>"; };
+		AEF2E8F32B940A2000152D7B /* ErrorMessageSheetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageSheetContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +105,10 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				AECD5B3A2B9587D00024C954 /* quiz */,
+				AECD5B2D2B9529080024C954 /* saved */,
+				AEB049222B923F220052DCA5 /* question */,
+				AEB0491F2B90BCA10052DCA5 /* extension */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -90,8 +124,74 @@
 				721B1595ECA7BC4D38314CD2 /* Pods-iosApp.debug.xcconfig */,
 				6B0DF3A5918F7A45B5A2317A /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AEB0491F2B90BCA10052DCA5 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				AEB049202B90BCDB0052DCA5 /* ColorExtension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		AEB049222B923F220052DCA5 /* question */ = {
+			isa = PBXGroup;
+			children = (
+				AEF20D4C2B9248DA00836818 /* components */,
+				AEB049232B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift */,
+				AEB049252B923F5F0052DCA5 /* GetQuestionListScreen.swift */,
+			);
+			path = question;
+			sourceTree = "<group>";
+		};
+		AECD5B2D2B9529080024C954 /* saved */ = {
+			isa = PBXGroup;
+			children = (
+				AECD5B2E2B952A390024C954 /* components */,
+				AECD5B2F2B952A590024C954 /* SavedQuestionsScreen.swift */,
+				AECD5B312B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift */,
+			);
+			path = saved;
+			sourceTree = "<group>";
+		};
+		AECD5B2E2B952A390024C954 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				AECD5B332B952E260024C954 /* SelectableSavedQuestionListItem.swift */,
+				AECD5B352B953F180024C954 /* SaveQuizHeader.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		AECD5B3A2B9587D00024C954 /* quiz */ = {
+			isa = PBXGroup;
+			children = (
+				AECD5B402B958F4C0024C954 /* details */,
+				AECD5B3B2B9588020024C954 /* IOSQuizViewModel.swift */,
+				AECD5B3D2B9589260024C954 /* QuizScreen.swift */,
+			);
+			path = quiz;
+			sourceTree = "<group>";
+		};
+		AECD5B402B958F4C0024C954 /* details */ = {
+			isa = PBXGroup;
+			children = (
+				AECD5B412B958F6A0024C954 /* QuizDetailsScreen.swift */,
+				AECD5B432B9594310024C954 /* IOSQuizDetailsViewModel.swift */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		AEF20D4C2B9248DA00836818 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				AEF20D4D2B9248EA00836818 /* ProgressButton.swift */,
+				AEF20D4F2B929D7000836818 /* QuestionsHeader.swift */,
+				AE763B972B92B154003C8808 /* QuestionListItem.swift */,
+				AEF2E8F32B940A2000152D7B /* ErrorMessageSheetContent.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,9 +202,11 @@
 			buildConfigurationList = 7555FFA5242A565B00829871 /* Build configuration list for PBXNativeTarget "iosApp" */;
 			buildPhases = (
 				342A7519947F7FDADD0B31EE /* [CP] Check Pods Manifest.lock */,
+				AEB0491E2B908DDA0052DCA5 /* ShellScript */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF79242A565900829871 /* Resources */,
 				6F6E24F5C0D6D7F5CD935174 /* Frameworks */,
+				0E70653E01B6BCB254E9C658 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +263,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E70653E01B6BCB254E9C658 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iosApp/Pods-iosApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		342A7519947F7FDADD0B31EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +302,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AEB0491E2B908DDA0052DCA5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\ncd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -190,8 +326,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEF20D4E2B9248EA00836818 /* ProgressButton.swift in Sources */,
+				AECD5B422B958F6A0024C954 /* QuizDetailsScreen.swift in Sources */,
+				AECD5B302B952A590024C954 /* SavedQuestionsScreen.swift in Sources */,
+				AECD5B442B9594310024C954 /* IOSQuizDetailsViewModel.swift in Sources */,
+				AEF20D502B929D7000836818 /* QuestionsHeader.swift in Sources */,
+				AEB049262B923F5F0052DCA5 /* GetQuestionListScreen.swift in Sources */,
+				AECD5B322B952ABB0024C954 /* IOSSavedQuestionsViewModel.swift in Sources */,
+				AEF2E8F42B940A2000152D7B /* ErrorMessageSheetContent.swift in Sources */,
+				AEB049212B90BCDB0052DCA5 /* ColorExtension.swift in Sources */,
+				AE763B982B92B154003C8808 /* QuestionListItem.swift in Sources */,
+				AECD5B362B953F180024C954 /* SaveQuizHeader.swift in Sources */,
+				AECD5B3C2B9588020024C954 /* IOSQuizViewModel.swift in Sources */,
+				AEB049242B923F4F0052DCA5 /* IOSGetQuestionListViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				AECD5B342B952E260024C954 /* SelectableSavedQuestionListItem.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				AECD5B3E2B9589260024C954 /* QuizScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +479,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-framework",
+					"\"shared\"",
+					"-lsqlite3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -348,6 +507,14 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-framework",
+					"\"shared\"",
+					"-lsqlite3",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = orgIdentifier.iosApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

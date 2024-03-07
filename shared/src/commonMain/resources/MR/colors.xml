@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    Primary-->
+    <color name="primary">
+        <light>#006e08</light>
+        <dark>#62e055</dark>
+    </color>
+    <color name="onPrimary">
+        <light>#ffffff</light>
+        <dark>#003a02</dark>
+    </color>
+    <color name="primaryContainer">
+        <light>#7ffe6e</light>
+        <dark>#005304</dark>
+    </color>
+    <color name="onPrimaryContainer">
+        <light>#002201</light>
+        <dark>#7ffe6e</dark>
+    </color>
+
+<!--    Secondary-->
+    <color name="secondary">
+        <light>#785a00</light>
+        <dark>#f7be23</dark>
+    </color>
+    <color name="onSecondary">
+        <light>#ffffff</light>
+        <dark>#3f2e00</dark>
+    </color>
+    <color name="secondaryContainer">
+        <light>#ffdf9b</light>
+        <dark>#5b4300</dark>
+    </color>
+    <color name="onSecondaryContainer">
+        <light>#251a00</light>
+        <dark>#ffdf9b</dark>
+    </color>
+
+<!--    Tertiary-->
+    <color name="tertiary">
+        <light>#386569</light>
+        <dark>#a0cfd2</dark>
+    </color>
+    <color name="onTertiary">
+        <light>#ffffff</light>
+        <dark>#00373a</dark>
+    </color>
+    <color name="tertiaryContainer">
+        <light>#bcebef</light>
+        <dark>#1e4d51</dark>
+    </color>
+    <color name="onTertiaryContainer">
+        <light>#002022</light>
+        <dark>#bcebef</dark>
+    </color>
+
+<!--    Error-->
+    <color name="error">
+        <light>#ba1a1a</light>
+        <dark>#ffb4ab</dark>
+    </color>
+    <color name="onError">
+        <light>#ffffff</light>
+        <dark>#690005</dark>
+    </color>
+    <color name="errorContainer">
+        <light>#ffdad6</light>
+        <dark>#93000a</dark>
+    </color>
+    <color name="onErrorContainer">
+        <light>#410002</light>
+        <dark>#ffdad6</dark>
+    </color>
+
+<!--    Background-->
+    <color name="background">
+        <light>#fcfdf6</light>
+        <dark>#1a1c18</dark>
+    </color>
+    <color name="onBackground">
+        <light>#1a1c18</light>
+        <dark>#e2e3dd</dark>
+    </color>
+
+<!--    Surface-->
+    <color name="surface">
+        <light>#fcfdf6</light>
+        <dark>#1a1c18</dark>
+    </color>
+    <color name="onSurface">
+        <light>#1a1c18</light>
+        <dark>#e2e3dd</dark>
+    </color>
+    <color name="surfaceVariant">
+        <light>#dfe4d8</light>
+        <dark>#43493f</dark>
+    </color>
+    <color name="onSurfaceVariant">
+        <light>#43493f</light>
+        <dark>#c3c8bc</dark>
+    </color>
+
+    <color name="outline">
+        <light>#73796e</light>
+        <dark>#8d9387</dark>
+    </color>
+</resources>

@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.kotlinCocoapods)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.sqlDelightPlugin)
+    id("dev.icerock.mobile.multiplatform-resources") // Must be at the end!
 }
 
 kotlin {
@@ -24,16 +27,67 @@ kotlin {
         podfile = project.file("../iosApp/Podfile")
         framework {
             baseName = "shared"
-            isStatic = true
+            isStatic = false
+        }
+    }
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64(),
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
+            export(libs.moko.resources)
+            export(libs.moko.graphics)
         }
     }
 
     sourceSets {
+        getByName("androidMain").dependsOn(commonMain.get())
+
         commonMain.dependencies {
-            // put your multiplatform dependencies here
+            api(libs.moko.resources)
+            implementation(libs.kotlin.dateTime)
+            implementation(libs.ktor.core)
+            implementation(libs.ktor.serialization)
+            implementation(libs.ktor.serializationJson)
+            implementation(libs.bundles.multiplatformSettings)
+            implementation(libs.sqlDelight.runtime)
+            implementation(libs.sqlDelight.coroutineExtensions)
         }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        androidMain.dependencies {
+            implementation(libs.ktor.client.android)
+            implementation(libs.sqlDelight.android.driver)
+        }
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(commonMain.get())
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+            dependencies {
+                implementation(libs.ktor.client.ios)
+                implementation(libs.sqlDelight.native.driver)
+            }
+        }
+
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest.get())
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
         }
     }
 }
@@ -47,5 +101,19 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = "com.klewerro.kmmquiz"
+    multiplatformResourcesClassName = "SharedRes"
+    disableStaticFrameworkWarning = true
+}
+
+sqldelight {
+    databases {
+        create("QuizDb") {
+            packageName = "com.klewerro.kmmquiz.database"
+        }
     }
 }

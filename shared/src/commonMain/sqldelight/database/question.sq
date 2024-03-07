@@ -1,0 +1,51 @@
+CREATE TABLE questionEntity(
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    category TEXT NOT NULL,
+    difficulty INTEGER NOT NULL,
+    correct_answer TEXT NOT NULL,
+    incorrect_answers TEXT NOT NULL,
+    type INTEGER NOT NULL,
+    text TEXT NOT NULL,
+    time INTEGER NOT NULL,
+    quiz_id INTEGER
+);
+
+getQuestions:
+SELECT *
+FROM questionEntity
+WHERE quiz_id IS NULL
+ORDER BY time DESC;
+
+getQuestionsForQuiz:
+SELECT *
+FROM questionEntity
+WHERE quiz_id = ?
+ORDER BY time DESC;
+
+countOfQuestionsWithText:
+SELECT COUNT(*)
+FROM questionEntity
+WHERE text = :text;
+
+insertQuestionEntity:
+INSERT OR REPLACE
+INTO questionEntity(
+    id,
+    category,
+    difficulty,
+    correct_answer,
+    incorrect_answers,
+    type,
+    text,
+    time
+)
+VALUES (?,?, ?, ?, ?, ?, ? ,?);
+
+updateQuestionQuizId:
+UPDATE OR REPLACE questionEntity
+SET quiz_id = :quizId
+WHERE text = :text;
+
+deleteQuestionEntity:
+DELETE FROM questionEntity
+WHERE text == ?;
